@@ -12,18 +12,18 @@
 E_Commerce_Project/
 ├── index.html            ← Authentication page
 ├── main.html             ← Main product catalog page
-├── electronics.html      ← Electronics category page
-├── clothing.html         ← Clothing category page
-├── books.html            ← Books category page
+├── menclothing.html      ← MenClothing category page
+├── kidsclothing.html         ← KidsClothing category page
+├── womenclothing.html            ← WomenClothing category page
 ├── cart.html             ← Shopping cart page
 ├── style.css             ← External CSS (entire project)
 ├── script.js             ← External JavaScript (entire project)
 ├── images/               ← All product & UI images
 │   ├── logo.png
 │   ├── header-bg.jpg
-│   ├── electronics/
-│   ├── clothing/
-│   └── books/
+│   ├── menclothing/
+│   ├── kidsclothing/
+│   └── womenclothing/
 └── schema.sql            ← Database schema (documentation only — not executed)
 ```
 
@@ -77,17 +77,17 @@ Structure:
 ```
 Structure:
 ├── <header>     ← Store name (centered) + logo (left) + background image
-├── <nav>        ← Links: Electronics | Clothing | Books | 🛒 Cart
+├── <nav>        ← Links: MenClothing | KidsClothing | WomenClothing | 🛒 Cart
 ├── <main>
-│   ├── <article class="category-card">   ← Electronics
-│   ├── <article class="category-card">   ← Clothing
-│   └── <article class="category-card">   ← Books
+│   ├── <article class="category-card">   ← MenClothing
+│   ├── <article class="category-card">   ← KidsClothing
+│   └── <article class="category-card">   ← WomenClothing
 └── <footer>     ← Student info
 ```
 
 ---
 
-#### 4. `electronics.html` / `clothing.html` / `books.html` — Category Pages
+#### 4. `menclothing.html` / `kidsclothing.html` / `womenclothing.html` — Category Pages
 
 Each file follows the same structure:
 
@@ -126,7 +126,7 @@ Structure:
 |---|---|
 | Product card wrapper | `class="product-card"` |
 | Add to Cart button | `class="add-to-cart-btn"` |
-| Product ID | `data-id="elec-001"` |
+| Product ID | `data-id="men-001"` |
 | Product name | `data-name="Wireless Headphones"` |
 | Product price (number only, no DA) | `data-price="4500"` |
 | Quantity input | `class="qty-input"` |
@@ -161,14 +161,14 @@ Structure:
 - Collect images for:
   - `images/logo.png` — store logo
   - `images/header-bg.jpg` — header background
-  - 3 product images per category → `images/electronics/`, `images/clothing/`, `images/books/`
+  - 3 product images per category → `images/menclothing/`, `images/kidsclothing/`, `images/womenclothing/`
 - Use consistent sizing in CSS: `width: 100%; aspect-ratio: 4/3; object-fit: cover`
 
 ---
 
 ### 📋 Deliverables
 
-- `index.html`, `main.html`, `electronics.html`, `clothing.html`, `books.html`, `cart.html`
+- `index.html`, `main.html`, `menclothing.html`, `kidsclothing.html`, `womenclothing.html`, `cart.html`
 - `style.css`
 - `images/` folder (all images)
 
@@ -242,8 +242,8 @@ if (loginForm) {
 // Value: JSON array — share this format with Teammate 3
 
 [
-  { id: "elec-001", name: "Wireless Headphones", price: 4500, qty: 2 },
-  { id: "book-001", name: "Clean Code",          price: 1200, qty: 1 }
+  { id: "men-001", name: "Wireless Headphones", price: 4500, qty: 2 },
+  { id: "womenclothing-001", name: "Clean Code",          price: 1200, qty: 1 }
 ]
 ```
 
@@ -508,15 +508,15 @@ INSERT INTO account VALUES
 
 -- Sample products
 INSERT INTO product VALUES
-('elec-001', 'Wireless Headphones',     4500.00, 'electronics', 'images/electronics/headphones.jpg', 'Noise cancellation, wireless.'),
-('elec-002', 'USB-C Hub',               1800.00, 'electronics', 'images/electronics/hub.jpg',         '7-in-1 multiport hub.'),
-('elec-003', 'LED Desk Lamp',            950.00, 'electronics', 'images/electronics/lamp.jpg',         'Adjustable brightness.'),
-('cloth-001','Cotton T-Shirt',            600.00, 'clothing',    'images/clothing/tshirt.jpg',          'Everyday comfort.'),
-('cloth-002','Denim Jacket',             2800.00, 'clothing',    'images/clothing/jacket.jpg',          'Classic denim fit.'),
-('cloth-003','Running Shoes',            3200.00, 'clothing',    'images/clothing/shoes.jpg',           'Lightweight design.'),
-('book-001', 'Clean Code',              1200.00, 'books',       'images/books/cleancode.jpg',          'Best practices for code.'),
-('book-002', 'The Pragmatic Programmer',1500.00, 'books',       'images/books/pragmatic.jpg',          'Career tips for devs.'),
-('book-003', 'Eloquent JavaScript',     1100.00, 'books',       'images/books/javascript.jpg',         'Modern JS introduction.');
+('men-001', 'Wireless Headphones',     4500.00, 'menclothing', 'images/menclothing/headphones.jpg', 'Noise cancellation, wireless.'),
+('men-002', 'USB-C Hub',               1800.00, 'menclothing', 'images/menclothing/hub.jpg',         '7-in-1 multiport hub.'),
+('men-003', 'LED Desk Lamp',            950.00, 'menclothing', 'images/menclothing/lamp.jpg',         'Adjustable brightness.'),
+('kids-001','Cotton T-Shirt',            600.00, 'kidsclothing',    'images/kidsclothing/tshirt.jpg',          'Everyday comfort.'),
+('kids-002','Denim Jacket',             2800.00, 'kidsclothing',    'images/kidsclothing/jacket.jpg',          'Classic denim fit.'),
+('kids-003','Running Shoes',            3200.00, 'kidsclothing',    'images/kidsclothing/shoes.jpg',           'Lightweight design.'),
+('womenclothing-001', 'Clean Code',              1200.00, 'womenclothing',       'images/womenclothing/cleancode.jpg',          'Best practices for code.'),
+('womenclothing-002', 'The Pragmatic Programmer',1500.00, 'womenclothing',       'images/womenclothing/pragmatic.jpg',          'Career tips for devs.'),
+('womenclothing-003', 'Eloquent JavaScript',     1100.00, 'womenclothing',       'images/womenclothing/javascript.jpg',         'Modern JS introduction.');
 ```
 
 ---
