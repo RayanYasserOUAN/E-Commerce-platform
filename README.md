@@ -27,8 +27,3 @@ You don't need any server, database, or backend setup to preview the project:
 3. Log in using one of the mock accounts (e.g., *admin* / *1234*).
 4. Start adding items to your cart!
 
-## 👥 Team
-
-- **Member 1:** HTML & CSS Integration, Frontend Design
-- **Member 2:** Authentication & Add-to-cart Javascript Logic
-- **Member 3:** Checkout, Cart Rendering, Database Schema Documentation
