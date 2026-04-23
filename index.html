@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentication - ShopHub</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Specific styles for auth page to match the spec while looking like shophub */
+    .auth-page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .auth-header {
+      padding: 2rem 0;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .auth-header-bg {
+      position: absolute;
+      inset: 0;
+      /* Background image as requested by spec, with dark overlay to match shophub style */
+      background-image: linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.95)), url('images/header-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    .auth-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      position: relative;
+    }
+  </style>
+</head>
+<body class="auth-page">
+
+  <!-- Atmospheric background blobs -->
+  <div class="absolute top-[-10%] left-[-5%] blob-primary opacity-60" style="width: 500px; height: 500px;" aria-hidden="true"></div>
+  <div class="absolute bottom-[-10%] right-[-5%] blob-accent opacity-50" style="width: 400px; height: 400px;" aria-hidden="true"></div>
+
+  <!-- Header Section as per spec -->
+  <header class="auth-header text-center">
+    <div class="auth-header-bg"></div>
+    <div class="container relative z-10 flex items-center justify-center">
+      <div class="absolute left-4 sm:left-8 flex items-center gap-2 text-primary">
+        <!-- Shopping Cart / Logo Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+          <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+        </svg>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">ShopHub</h1>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="auth-main z-10">
+    <div class="w-full max-w-md animate-fade-in-up">
+      <div class="glass-card">
+        <h2 class="text-xl font-bold text-center mb-6">Welcome back</h2>
+        
+        <form id="login-form">
+          <p id="error-msg">Incorrect username or password.</p>
+          
+          <div class="form-group">
+            <label for="username" class="form-label">Username</label>
+            <div class="relative">
+              <span class="absolute left-3" style="top: 50%; transform: translateY(-50%); color: var(--muted-foreground);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                  <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <input type="text" id="username" class="form-input" style="padding-left: 2.25rem;" placeholder="Enter your username">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <div class="relative">
+              <span class="absolute left-3" style="top: 50%; transform: translateY(-50%); color: var(--muted-foreground);">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                  <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <input type="password" id="password" class="form-input" style="padding-left: 2.25rem;" placeholder="••••••••">
+            </div>
+          </div>
+          
+          <button type="submit" class="btn-primary w-full mt-4" style="height: 3rem; font-size: 1rem; border-radius: 0.75rem;">
+            Sign In
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </form>
+
+        <div class="text-center mt-6">
+          <p class="text-xs text-muted-foreground">Demo Accounts:</p>
+          <p class="text-xs text-primary font-semibold mt-1">admin / 1234 &nbsp;|&nbsp; rayan / pass1 &nbsp;|&nbsp; student / wad2026</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" class="text-primary">
+            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+          </svg>
+          <span class="font-extrabold text-sm tracking-tight">ShopHub</span>
+        </div>
+        <div class="text-xs text-muted-foreground">© 2026 ShopHub E-Commerce</div>
+      </div>
+
+      <div class="student-info-row">
+        <div class="student-info-item">
+          <span>👤</span>
+          <span class="font-semibold">Full Name</span>
+        </div>
+        <div class="student-info-item">
+          <span>📧</span>
+          <span>student@umbb.dz</span>
+        </div>
+        <div class="student-info-item">
+          <span>🆔</span>
+          <span>Group X / Section Y</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

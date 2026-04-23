@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - ShopHub</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Specific styles for cart table */
+    .cart-container {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    #cart-table th {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    #cart-table td {
+      padding: 1.5rem 1rem;
+      vertical-align: middle;
+    }
+
+    .remove-btn {
+      background: transparent;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: rgb(248, 113, 113);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+    }
+
+    .remove-btn:hover {
+      background: rgba(239, 68, 68, 0.1);
+      border-color: rgb(248, 113, 113);
+    }
+
+    .cart-grand-total-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-top: 2rem;
+      margin-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .cart-grand-total {
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    #cart-empty-row td {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--muted-foreground);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="app-header">
+    <div class="container header-container">
+      <a href="main.html" class="logo-container" style="text-decoration: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32" class="text-primary">
+          <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+        </svg>
+        <span class="logo-text">ShopHub</span>
+      </a>
+
+      <!-- Navigation Section -->
+      <nav class="main-nav">
+        <a href="MenClothing.html" class="nav-link">Men's Clothing</a>
+        <a href="WomenClothing.html" class="nav-link">Women's Clothing</a>
+        <a href="KidsClothing.html" class="nav-link">Kids' Clothing</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Cart Link -->
+        <a href="cart.html" class="cart-icon-wrapper active text-primary" aria-label="Shopping Cart" style="background: rgba(232, 80, 10, 0.1);">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24" height="24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+          <span id="nav-cart-count" class="cart-badge">0</span>
+        </a>
+
+        <!-- Logout Link -->
+        <a href="#" id="logout-link" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+            <path fill-rule="evenodd" d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M19 10a.75.75 0 00-.75-.75H8.704l1.048-.943a.75.75 0 10-1.004-1.114l-2.5 2.25a.75.75 0 000 1.114l2.5 2.25a.75.75 0 101.004-1.114l-1.048-.943h9.546A.75.75 0 0019 10z" clip-rule="evenodd" />
+          </svg>
+          Logout
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="py-8">
+      <h1 class="text-3xl mb-2 flex items-center gap-3">
+        Shopping Cart
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="28" height="28" class="text-primary">
+          <path fill-rule="evenodd" d="M6 5v1H4.667a1.75 1.75 0 00-1.743 1.598l-.826 9.5A1.75 1.75 0 003.84 19H16.16a1.75 1.75 0 001.743-1.902l-.826-9.5A1.75 1.75 0 0015.333 6H14V5a4 4 0 00-8 0zm4-2.5A2.5 2.5 0 007.5 5v1h5V5A2.5 2.5 0 0010 2.5zM7.5 10a2.5 2.5 0 005 0V8.75a.75.75 0 011.5 0V10a4 4 0 01-8 0V8.75a.75.75 0 011.5 0V10z" clip-rule="evenodd" />
+        </svg>
+      </h1>
+      <p class="text-muted-foreground">Review your items before checkout.</p>
+    </div>
+
+    <div class="cart-container">
+      <div style="overflow-x: auto;">
+        <table id="cart-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Subtotal</th>
+              <th style="width: 100px;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="cart-table-body">
+            <tr id="cart-empty-row">
+              <td colspan="5">
+                <div class="flex flex-col items-center justify-center py-8">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="64" height="64" class="mb-4" style="opacity: 0.2;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                  </svg>
+                  <p class="text-lg font-semibold">Your cart is currently empty.</p>
+                  <p class="text-sm mt-2">Start adding items to proceed to checkout.</p>
+                  <a href="main.html" class="btn-primary mt-6">Continue Shopping</a>
+                </div>
+              </td>
+            </tr>
+            <!-- JS will populate rows here -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cart-grand-total-container">
+        <div class="cart-grand-total">
+          <span class="text-muted-foreground text-sm uppercase tracking-wider font-semibold">Grand Total:</span>
+          <span id="cart-grand-total" class="font-extrabold text-primary text-2xl">0 DA</span>
+        </div>
+      </div>
+      
+      <div class="mt-8 flex justify-end gap-4">
+        <a href="main.html" class="btn-outline">Continue Shopping</a>
+        <!-- We use checkout-btn id as required by spec to clear cart and show message -->
+        <button id="checkout-btn" class="btn-primary px-8">Checkout</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="text-center mb-6">
+        <p id="final-total" class="text-xl font-bold text-accent hidden">✅ Order placed! Total: 0 DA</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" class="text-primary">
+            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+          </svg>
+          <span class="font-extrabold text-sm tracking-tight">ShopHub</span>
+        </div>
+        
+        <div class="flex gap-4 items-center">
+          <a href="main.html" class="nav-link text-xs">Catalog</a>
+          <a href="MenClothing.html" class="nav-link text-xs">Men's</a>
+          <a href="WomenClothing.html" class="nav-link text-xs">Women's</a>
+          <a href="KidsClothing.html" class="nav-link text-xs">Kids'</a>
+        </div>
+
+        <div class="text-xs text-muted-foreground">© 2026 ShopHub E-Commerce</div>
+      </div>
+
+      <div class="student-info-row">
+        <div class="student-info-item">
+          <span>👤</span>
+          <span class="font-semibold">Full Name</span>
+        </div>
+        <div class="student-info-item">
+          <span>📧</span>
+          <span>student@umbb.dz</span>
+        </div>
+        <div class="student-info-item">
+          <span>🆔</span>
+          <span>Group X / Section Y</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    #final-total:not(:empty) {
+      display: block;
+    }
+    #final-total.hidden {
+      display: none;
+    }
+  </style>
+
+  <script src="script.js"></script>
+</body>
+</html>

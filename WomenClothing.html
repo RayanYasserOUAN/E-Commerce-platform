@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women's Clothing - ShopHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="app-header">
+    <div class="container header-container">
+      <a href="main.html" class="logo-container" style="text-decoration: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32" class="text-primary">
+          <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+        </svg>
+        <span class="logo-text">ShopHub</span>
+      </a>
+
+      <!-- Navigation Section -->
+      <nav class="main-nav">
+        <a href="MenClothing.html" class="nav-link">Men's Clothing</a>
+        <a href="WomenClothing.html" class="nav-link active">Women's Clothing</a>
+        <a href="KidsClothing.html" class="nav-link">Kids' Clothing</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Cart Link -->
+        <a href="cart.html" class="cart-icon-wrapper" aria-label="Shopping Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24" height="24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+          <span id="nav-cart-count" class="cart-badge">0</span>
+        </a>
+
+        <!-- Logout Link -->
+        <a href="#" id="logout-link" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+            <path fill-rule="evenodd" d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M19 10a.75.75 0 00-.75-.75H8.704l1.048-.943a.75.75 0 10-1.004-1.114l-2.5 2.25a.75.75 0 000 1.114l2.5 2.25a.75.75 0 101.004-1.114l-1.048-.943h9.546A.75.75 0 0019 10z" clip-rule="evenodd" />
+          </svg>
+          Logout
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="py-8">
+      <h1 class="text-3xl mb-2">Women's Clothing</h1>
+      <p class="text-muted-foreground">Elegant and comfortable styles for women.</p>
+    </div>
+    
+    <div class="page-body">
+      <!-- Products Area -->
+      <div class="products-area">
+        <div class="products-grid">
+          
+          <!-- Product 1 -->
+          <article class="product-card" data-id="womenclothing-001" data-name="Clean Code" data-price="1200">
+            <img src="images/womenclothing/cleancode.jpg" alt="Clean Code" onerror="this.src='https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=600&auto=format&fit=crop';">
+            <div class="product-card-content">
+              <h2 class="text-xl mb-1">Clean Code</h2>
+              <p class="text-primary font-bold text-xl mb-2">1,200 DA</p>
+              <p class="text-sm text-muted-foreground mb-4 flex-grow">Best practices for code.</p>
+              <div class="flex items-center gap-2 mt-auto">
+                <input type="number" class="qty-input" min="1" value="1" aria-label="Quantity">
+                <button class="add-to-cart-btn btn-primary" style="flex: 1;">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card" data-id="womenclothing-002" data-name="The Pragmatic Programmer" data-price="1500">
+            <img src="images/womenclothing/pragmatic.jpg" alt="The Pragmatic Programmer" onerror="this.src='https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&auto=format&fit=crop';">
+            <div class="product-card-content">
+              <h2 class="text-xl mb-1">The Pragmatic Programmer</h2>
+              <p class="text-primary font-bold text-xl mb-2">1,500 DA</p>
+              <p class="text-sm text-muted-foreground mb-4 flex-grow">Career tips for devs.</p>
+              <div class="flex items-center gap-2 mt-auto">
+                <input type="number" class="qty-input" min="1" value="1" aria-label="Quantity">
+                <button class="add-to-cart-btn btn-primary" style="flex: 1;">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card" data-id="womenclothing-003" data-name="Eloquent JavaScript" data-price="1100">
+            <img src="images/womenclothing/javascript.jpg" alt="Eloquent JavaScript" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=600&auto=format&fit=crop';">
+            <div class="product-card-content">
+              <h2 class="text-xl mb-1">Eloquent JavaScript</h2>
+              <p class="text-primary font-bold text-xl mb-2">1,100 DA</p>
+              <p class="text-sm text-muted-foreground mb-4 flex-grow">Modern JS introduction.</p>
+              <div class="flex items-center gap-2 mt-auto">
+                <input type="number" class="qty-input" min="1" value="1" aria-label="Quantity">
+                <button class="add-to-cart-btn btn-primary" style="flex: 1;">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+          
+        </div>
+        
+        <div class="mt-8 text-right">
+          <button id="checkout-btn" class="btn-primary" style="padding: 0.75rem 2rem; font-size: 1rem;">
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>
+
+      <!-- Asides Column -->
+      <div class="aside-column">
+        
+        <!-- Shopping Policy Aside -->
+        <aside id="aside-policy" class="aside-panel">
+          <h3 class="text-lg mb-2 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16" class="text-primary">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" />
+            </svg>
+            Store Policy
+          </h3>
+          <div class="auto-scroll-container">
+            <div class="auto-scroll-text">
+              <p>1. Fast and secure checkout.</p>
+              <p>2. 30-day money-back guarantee.</p>
+              <p>3. Free shipping on orders over 10,000 DA.</p>
+              <p>4. 24/7 customer support available.</p>
+              <p>5. Safe and encrypted transactions.</p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Cart Summary Aside -->
+        <aside id="aside-cart" class="aside-panel" style="top: calc(5rem + 300px);">
+          <h3 class="text-lg mb-4 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16" class="text-primary">
+              <path fill-rule="evenodd" d="M6 5v1H4.667a1.75 1.75 0 00-1.743 1.598l-.826 9.5A1.75 1.75 0 003.84 19H16.16a1.75 1.75 0 001.743-1.902l-.826-9.5A1.75 1.75 0 0015.333 6H14V5a4 4 0 00-8 0zm4-2.5A2.5 2.5 0 007.5 5v1h5V5A2.5 2.5 0 0010 2.5zM7.5 10a2.5 2.5 0 005 0V8.75a.75.75 0 011.5 0V10a4 4 0 01-8 0V8.75a.75.75 0 011.5 0V10z" clip-rule="evenodd" />
+            </svg>
+            Cart Summary
+          </h3>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-muted-foreground">Items:</span>
+            <span id="cart-count" class="font-bold">0</span>
+          </div>
+          <div class="flex justify-between items-center border-t border-border pt-2 mt-2">
+            <span class="text-muted-foreground">Total:</span>
+            <span id="cart-total" class="font-extrabold text-primary text-xl">0 DA</span>
+          </div>
+          <a href="cart.html" class="btn-outline w-full mt-4">View Full Cart</a>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="text-center mb-6">
+        <p id="final-total" class="text-xl font-bold text-accent hidden">✅ Order placed! Total: 0 DA</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" class="text-primary">
+            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+          </svg>
+          <span class="font-extrabold text-sm tracking-tight">ShopHub</span>
+        </div>
+        
+        <div class="flex gap-4 items-center">
+          <a href="main.html" class="nav-link text-xs">Catalog</a>
+          <a href="MenClothing.html" class="nav-link text-xs">Men's</a>
+          <a href="KidsClothing.html" class="nav-link text-xs">Kids'</a>
+        </div>
+
+        <div class="text-xs text-muted-foreground">© 2026 ShopHub E-Commerce</div>
+      </div>
+
+      <div class="student-info-row">
+        <div class="student-info-item">
+          <span>👤</span>
+          <span class="font-semibold">Full Name</span>
+        </div>
+        <div class="student-info-item">
+          <span>📧</span>
+          <span>student@umbb.dz</span>
+        </div>
+        <div class="student-info-item">
+          <span>🆔</span>
+          <span>Group X / Section Y</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    #final-total:not(:empty) {
+      display: block;
+    }
+    #final-total.hidden {
+      display: none;
+    }
+  </style>
+
+  <script src="script.js"></script>
+</body>
+</html>
