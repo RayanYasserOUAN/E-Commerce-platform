@@ -958,7 +958,7 @@ th {
   justify-content: space-between;
   align-items: flex-start;
   color: white;
-  min-height: 400px;
+  min-height: 480px;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
