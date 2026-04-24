@@ -453,6 +453,12 @@ th {
   gap: 0.5rem;
 }
 
+.header-logo {
+  height: 32px;
+  width: auto;
+}
+
+
 .logo-text {
   font-size: 1.25rem;
   font-weight: 800;
@@ -936,7 +942,7 @@ th {
 
 /* --- Custom Branded Footer --- */
 .custom-footer {
-  padding: 2rem 1rem 4rem;
+  padding: 5rem 1rem 1rem;
   background-color: var(--background);
 }
 
@@ -1122,6 +1128,44 @@ th {
   }
   .footer-social-container {
     justify-content: flex-start;
+  }
+}
+
+/* --- Footer Bottom Section --- */
+.footer-bottom {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer-bottom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-bottom-links a {
+  text-decoration: underline;
+  color: var(--foreground);
+}
+
+.footer-bottom-links a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
