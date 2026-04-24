@@ -6,7 +6,7 @@
   <title>Log In</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Syne:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="login-body">
@@ -14,9 +14,12 @@
   <div class="login-container">
     <!-- Left Form Section -->
     <div class="login-left">
+      <div class="company-logo">
+        <img src="Assets/Login/7/Company Logo.svg" alt="Company Logo">
+      </div>
       <div class="login-form-wrapper">
         <h1 class="login-title">Log In</h1>
-        <p class="login-subtitle">Lorem ipsum dolor sit amet adipiscing elit.</p>
+        <p class="login-subtitle">Log in to your account to start shopping</p>
 
         <form onsubmit="event.preventDefault();">
           <div class="form-group">
@@ -37,8 +40,9 @@
 
           <div class="divider">Or continue with</div>
 
-          <button type="submit" class="btn-login btn-login-primary">Log in</button>
-          
+          <button type="submit" class="btn-login btn-login-primary arr">
+            Log in<div class="arrow-wrapper"><div class="arrow"></div></div>
+          </button>
           <button type="button" class="btn-login btn-login-google">
             <img src="Assets/Login/7/google Icons.svg" width="20" height="20" alt="Google Icon">
             Log in with Google
@@ -48,12 +52,22 @@
         <p class="signup-text">
           Don't have an account? <span class="signup-link">Sign Up</span>
         </p>
+
+      <!-- Demo credentials hint 
+        <div class="auth-hint">
+          <p4>Demo: <strong>admin / admin123</strong> or <strong>customer1 / pass1234</strong></p4>
+        </div>
+      -->
       </div>
     </div>
 
     <!-- Right Image Section -->
     <div class="login-right ">
-      
+      <div class="image-container">
+        <img src="Image/Login image.jpg" alt="Login Image" class="login-image">
+        <div class="corner-cutout top-left"></div>
+        <div class="corner-cutout bottom-right"></div>
+      </div>
     </div>
   </div>
 

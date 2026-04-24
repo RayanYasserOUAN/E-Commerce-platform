@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Syne:wght@500&display=swap');
 
 :root {
   --background: #0A0A0F;
@@ -17,7 +17,8 @@
   --input: #1E1E30;
   --ring: #E8500A;
   --radius: 1rem;
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Poppins', sans-serif;
 }
 
 /* Global Reset & Base Styles */
@@ -30,7 +31,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
 }
 
 body {
@@ -46,9 +47,21 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--primary-foreground);
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 500;
   line-height: 1.2;
 }
+
+h1 { font-size: 54px; }
+h2 { font-size: 45px; }
+h3 { font-size: 36px; }
+h4 { font-size: 29px; }
+
+.b1 { font-size: 22px; font-weight: 400; font-family: var(--font-body); }
+.b2 { font-size: 18px; font-weight: 400; font-family: var(--font-body); }
+.b3 { font-size: 14px; font-weight: 400; font-family: var(--font-body); }
+.b4 { font-size: 12px; font-weight: 400; font-family: var(--font-body); }
+.b5 { font-size: 10px; font-weight: 400; font-family: var(--font-body); }
 
 p {
   color: var(--foreground);
@@ -579,12 +592,7 @@ th {
 }
 
 .hero-title {
-  font-size: 2.5rem;
   margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
-  .hero-title { font-size: 3.5rem; }
 }
 
 .hero-subtitle {
@@ -655,7 +663,7 @@ th {
 .login-body {
   display: flex;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #FFFCF9;
   color: #111111;
 }
 
@@ -673,6 +681,18 @@ th {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  position: relative;
+}
+
+.company-logo {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+}
+
+.company-logo img {
+  height: 28px;
+  width: auto;
 }
 
 .login-form-wrapper {
@@ -681,8 +701,7 @@ th {
 }
 
 .login-title {
-  font-size: 2.5rem;
-  font-weight: 700;
+  color: black;
   margin-bottom: 0.75rem;
   text-align: center;
   letter-spacing: -0.02em;
@@ -725,12 +744,12 @@ th {
   width: 100%;
   padding: 0.85rem 1rem 0.85rem 2.75rem;
   border: 1px solid #d1d5db;
-  border-radius: 10px;
+  border-radius: 15px;
   font-size: 0.95rem;
   outline: none;
   transition: border-color 0.2s;
   color: #333;
-  background-color: #fff;
+  background-color: #FFFCF9;
 }
 
 .form-input-login::placeholder {
@@ -738,7 +757,7 @@ th {
 }
 
 .form-input-login:focus {
-  border-color: #55A579;
+  border-color: #645bff;
 }
 
 .divider {
@@ -763,7 +782,7 @@ th {
 .btn-login {
   width: 100%;
   padding: 0.85rem;
-  border-radius: 10px;
+  border-radius: 15px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -776,17 +795,17 @@ th {
 }
 
 .btn-login-primary {
-  background-color: #51A87E;
+  background-color: #645bff;
   color: white;
   margin-bottom: 1rem;
 }
 
 .btn-login-primary:hover {
-  background-color: #438f69;
+  background-color: #645bff;
 }
 
 .btn-login-google {
-  background-color: white;
+  background-color: #FFFCF9;
   border: 1px solid #d1d5db;
   color: #333;
 }
@@ -813,7 +832,7 @@ th {
 .login-right {
   flex: 1;
   display: none;
-  background-color: #f8f9fa;
+  background-color: #FFFCF9;
   position: relative;
   overflow: hidden;
   padding: 2rem;
@@ -849,29 +868,129 @@ th {
   left: 0;
 }
 
-/* Decorative circles behind the image to match the provided design feel */
-.bg-circle-1 {
+/* Decorative cutouts to mimic the custom shape */
+.corner-cutout {
   position: absolute;
-  top: 2rem;
-  left: 1rem;
-  width: 100px;
-  height: 100px;
-  background-color: #d1d5db;
-  border-radius: 50%;
-  z-index: 1;
+  width: 80px;
+  height: 80px;
+  background-color: #FFFCF9; /* Matches the parent container background */
+  z-index: 3;
 }
 
-.bg-circle-2 {
+.corner-cutout.top-left {
+  top: -1px;
+  left: -1px;
+  border-bottom-right-radius: 40px;
+}
+
+.corner-cutout.bottom-right {
+  bottom: -1px;
+  right: -1px;
+  border-top-left-radius: 40px;
+}
+
+.corner-cutout.top-left::before {
+  content: "";
   position: absolute;
-  bottom: 2rem;
-  right: 1rem;
-  width: 120px;
-  height: 120px;
-  background-color: #d1d5db;
-  border-radius: 50%;
-  z-index: 1;
+  top: 0;
+  left: 80px;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 100% 100%, transparent 40px, #FFFCF9 40.5px);
+}
+
+.corner-cutout.top-left::after {
+  content: "";
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 100% 100%, transparent 40px, #FFFCF9 40.5px);
+}
+
+.corner-cutout.bottom-right::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 80px;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 0% 0%, transparent 40px, #FFFCF9 40.5px);
+}
+
+.corner-cutout.bottom-right::after {
+  content: "";
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 0% 0%, transparent 40px, #FFFCF9 40.5px);
 }
 
 .box {
   padding: 20px;
+}
+
+
+/* From Uiverse.io by satyamchaudharydev */ 
+button {
+  --primary-color: #645bff;
+  --secondary-color: #fff;
+  --hover-color: #111;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 15px;
+  color: var(--secondary-color);
+  padding: 1em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+}
+
+button .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+button .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
+
+button:hover .arrow {
+  background: var(--secondary-color);
+}
+
+button:hover .arrow:before {
+  right: 0;
 }
