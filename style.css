@@ -993,8 +993,8 @@ th {
   color: white !important;
 }
 
-.footer-left .b2 {
-  color: rgba(255, 255, 255, 0.8);
+.footer-left .b3 {
+  color: #DDDDDD;
   max-width: 400px;
 }
 
@@ -1198,9 +1198,9 @@ th {
 }
 
 .btn-footer-cta {
-  --primary-color: #00C9A7;
-  --secondary-color: #fff;
-  --hover-color: #111;
+  --primary-color: #ffffff;
+  --secondary-color: #000000;
+  --hover-color: #f0f0f0;
 }
 
 .btn-login-primary .arrow-wrapper, .btn-footer-cta .arrow-wrapper {
