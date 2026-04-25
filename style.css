@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Syne:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap');
 
 :root {
   --background: #FFFCF9;
   --foreground: #111111;
-  --primary: #E8500A;
+  --primary: #645BFF;
   --primary-foreground: #FFFFFF;
   --secondary: #F3F4F6;
   --secondary-foreground: #1F2937;
@@ -15,7 +15,7 @@
   --card-foreground: #111111;
   --border: #E5E7EB;
   --input: #FFFFFF;
-  --ring: #E8500A;
+  --ring: #645BFF;
   --radius: 1rem;
   --font-heading: 'Syne', sans-serif;
   --font-body: 'Poppins', sans-serif;
@@ -182,7 +182,7 @@ th {
 
 /* Atmospheric blob */
 .blob-primary {
-  background: radial-gradient(circle, rgba(232, 80, 10, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(106, 10, 232, 0.35) 0%, transparent 70%);
   filter: blur(80px);
   border-radius: 50%;
   pointer-events: none;
@@ -220,32 +220,143 @@ th {
 
 /* Product card */
 .product-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 348px;
+  height: 460px;
+  background: #ffffff;
+  border: 1px solid #c0c0c0;
+  border-radius: 26px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.5rem;
 }
 
-.product-card img {
+.product-image-container {
+  width: 328px;
+  height: 272px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-image-container img {
   width: 100%;
-  aspect-ratio: 4/3;
+  height: 100%;
   object-fit: cover;
+  border-radius: 16px;
+}
+
+.price-tag {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 0px 10px 0px 20px;
+  border-top-left-radius: 30px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  color: #111111;
+  z-index: 10;
+  line-height: 1;
 }
 
 .product-card-content {
-  padding: 1.25rem;
+  padding: 10px 0 0;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
+.product-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.product-description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  flex-grow: 1;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stars-review {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.stars-review img {
+  width: 16px;
+  height: 16px;
+}
+
+.review-count {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  margin-left: 8px;
+}
+
+.category-box {
+  width: 80px;
+  height: 22px;
+  background-color: #F8F8F8;
+  border: 1px solid #D4D4D4;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.add-to-cart-btn {
+  width: 328px !important;
+  height: 36px !important;
+  background-color: #B2C7E8 !important; /* Light blue from image */
+  border-radius: 16px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  color: #000000 !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #9ab3d9 !important;
+}
+
 .product-card:hover {
-  border-color: rgba(232, 80, 10, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(232, 80, 10, 0.15);
+  border-color: rgba(106, 10, 232, 0.4);
+  transform: translateY(3px);
+  box-shadow: 0 20px 40px rgba(106, 10, 232, 0.15);
 }
 
 /* Input styles */
@@ -320,7 +431,7 @@ th {
 }
 
 .btn-primary:hover {
-  background: #FF6A2A;
+  background: #000000;
   box-shadow: 0 0 20px rgba(232, 80, 10, 0.4);
   transform: translateY(-1px);
 }
@@ -958,7 +1069,7 @@ th {
   justify-content: space-between;
   align-items: flex-start;
   color: white;
-  min-height: 400px;
+  min-height: 500px;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
@@ -1247,3 +1358,69 @@ th {
 /* Existing footer button color is now handled by variables above */
 
 
+
+/* --- Shopping Cart Styles --- */
+.cart-container {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#cart-table th {
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+#cart-table td {
+  padding: 1.5rem 1rem;
+  vertical-align: middle;
+}
+
+.remove-btn {
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: rgb(248, 113, 113);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.remove-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgb(248, 113, 113);
+}
+
+.cart-grand-total-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 2rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.cart-grand-total {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#cart-empty-row td {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--muted-foreground);
+}
+
+#final-total:not(:empty) {
+  display: block;
+}
+
+#final-total.hidden {
+  display: none;
+}
