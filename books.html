@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NexShop — Books</title>
+<title>ShopHub - Books</title>
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -11,78 +11,76 @@
 
 <body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="header-inner">
-    <span class="header-title">NexShop</span>
-    <nav class="site-nav">
-      <a href="main.html"><i class="fa fa-house"></i></a>
-      <a href="electronics.html"><i class="fa fa-microchip"></i></a>
-      <a href="clothing.html"><i class="fa fa-shirt"></i></a>
-      <a href="books.html" class="active"><i class="fa fa-book"></i></a>
-      <a href="#"><i class="fa fa-cart-shopping"></i></a>
+<!-- HEADER (same as main) -->
+<header class="app-header">
+  <div class="container header-container">
+    <img src="Assets/Login/7/Company Logo.svg" class="header-logo">
+
+    <nav class="main-nav">
+      <a href="MenClothing.html">Men</a>
+      <a href="WomenClothing.html">Women</a>
+      <a href="KidsClothing.html">Kids</a>
     </nav>
+
+    <div class="header-actions">
+      <a href="cart.html">🛒 <span id="nav-cart-count">0</span></a>
+      <a href="#" class="btn-primary">Logout</a>
+    </div>
   </div>
 </header>
 
 <!-- TITLE -->
 <section class="category-page-header">
   <h1>Books</h1>
-  <p>Knowledge that powers your career</p>
+  <p>Learn & grow</p>
 </section>
 
 <!-- PRODUCTS -->
-<main class="products-main">
+<main class="container">
   <div class="products-grid">
 
     <!-- BOOK -->
     <div class="product-card" data-id="7" data-price="1500">
       <h3>Python Programming</h3>
-      <p>Guide complet Python (débutant → avancé)</p>
+      <p>Beginner → Advanced</p>
       <span>DA1500</span>
 
-      <div class="product-actions">
-        <input type="number" value="1" min="1">
-        <button onclick="handleAddToCart(this)">
-          <i class="fa fa-cart-plus"></i>
-        </button>
-      </div>
+      <input type="number" value="1" min="1">
+      <button onclick="handleAddToCart(this)">
+        <i class="fa fa-cart-plus"></i>
+      </button>
     </div>
 
     <!-- BOOK -->
     <div class="product-card" data-id="8" data-price="1200">
       <h3>Design Patterns</h3>
-      <p>Les 23 design patterns essentiels</p>
+      <p>Essential concepts</p>
       <span>DA1200</span>
 
-      <div class="product-actions">
-        <input type="number" value="1" min="1">
-        <button onclick="handleAddToCart(this)">
-          <i class="fa fa-cart-plus"></i>
-        </button>
-      </div>
+      <input type="number" value="1" min="1">
+      <button onclick="handleAddToCart(this)">
+        <i class="fa fa-cart-plus"></i>
+      </button>
     </div>
 
     <!-- BOOK -->
     <div class="product-card" data-id="9" data-price="1350">
       <h3>Pragmatic Programmer</h3>
-      <p>Conseils pratiques pour développeurs</p>
+      <p>Best practices</p>
       <span>DA1350</span>
 
-      <div class="product-actions">
-        <input type="number" value="1" min="1">
-        <button onclick="handleAddToCart(this)">
-          <i class="fa fa-cart-plus"></i>
-        </button>
-      </div>
+      <input type="number" value="1" min="1">
+      <button onclick="handleAddToCart(this)">
+        <i class="fa fa-cart-plus"></i>
+      </button>
     </div>
 
   </div>
 </main>
 
 <!-- FOOTER -->
-<footer class="site-footer">
-  <p>© 2026 NexShop</p>
+<footer class="custom-footer">
+  <p>© 2026 ShopHub</p>
 </footer>
 
 <script src="script.js"></script>
