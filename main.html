@@ -46,16 +46,65 @@
 
   <main>
     <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="absolute top-[10%] left-[20%] blob-primary" style="width: 400px; height: 400px; opacity: 0.4;"></div>
-      <div class="absolute bottom-[20%] right-[10%] blob-accent" style="width: 500px; height: 500px; opacity: 0.3;"></div>
-      
-      <div class="container relative z-10 animate-fade-in-up">
-        <span class="category-badge mb-4" style="color: var(--accent);">Welcome to ShopHub</span>
-        <h1 class="hero-title">Discover the Best in <br><span class="gradient-text">Fashion & More</span></h1>
-        <p class="hero-subtitle">Browse our curated collection of men's, women's, and kids' clothing. Enjoy a seamless shopping experience with top-tier quality and fast checkout.</p>
+    <section class="hero-section" id="hero">
+      <div class="hero-container">
+        <!-- Left Panel -->
+        <div class="hero-left">
+          <img src="Assets/shop all badge.svg" alt="Shop All Flavors" class="hero-badge">
+          <div class="hero-buttons">
+            <div class="hero-btn hero-btn-solid">
+              <span class="hero-btn-label b3">LEARN MORE</span>
+              <div class="hero-btn-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 14L14 4M14 4H7M14 4V11" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="hero-btn hero-btn-outline">
+              <span class="hero-btn-label b3">CONTACT US</span>
+              <div class="hero-btn-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 14L14 4M14 4H7M14 4V11" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="hero-right">
+          <!-- Top Container -->
+          <div class="hero-right-top">
+            <div class="hero-heading-row">
+              <h1 class="hero-heading-for">For</h1>
+              <svg class="hero-arrow-long" width="180" height="24" viewBox="0 0 180 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 12H176M176 12L164 2M176 12L164 22" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h1 class="hero-heading-main">EVERYONE BUT</h1>
+            <h1 class="hero-heading-main">NOTANYONE</h1>
+            <p class="hero-body-text b2">We establish personal relationships with our boutiques, to make sure each is vetted for a stress-free shopping experience</p>
+            <p class="hero-body-bold b2"><b>OVER 10,000 STYLE AROUND THE WORLD</b></p>
+          </div>
+
+          <!-- Bottom Row -->
+          <div class="hero-right-bottom">
+            <div class="hero-bottom-card">
+              <span class="hero-card-tag">#RIP STOP</span>
+            </div>
+            <div class="hero-bottom-card">
+              <span class="hero-card-tag">#INSULATED</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+    
+    <!-- Infinity Loop Carousel -->
+    <div class="mrq-wrap">
+      <div class="mrq-track" id="mrq">
+      </div>
+    </div>
 
     <!-- Categories Section (Main 3 Articles) -->
     <section class="container mb-12 relative z-10">
