@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nivaro</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+      <!-- Promo Banner Wrapper -->
+      <div class="promo-banner">
+
+        <!-- Banner Content Container -->
+        <div class="promo-banner-content">
+          <span class="promo-highlight">Special Deal</span>
+          <span class="promo-divider">•</span>
+          <span>Free Shipping on Orders Above $50</span>
+          <span class="promo-divider">•</span>
+          <span>20% OFF on First Purchase</span>
+
+        </div>
+      </div>
 
   <!-- Header Section as per spec -->
   <header class="app-header">
@@ -16,18 +31,29 @@
         <img src="Assets/Login/7/Company Logo.svg" alt="Company Logo" class="header-logo">
       </div>
 
-      <!-- Navigation Section -->
+      <!-- Navigation Section --> 
       <nav class="main-nav">
         <a href="MenClothing.html" class="nav-link">Men's Clothing</a>
         <a href="WomenClothing.html" class="nav-link">Women's Clothing</a>
         <a href="KidsClothing.html" class="nav-link">Kids' Clothing</a>
       </nav>
 
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
       <div class="header-actions">
         <!-- Cart Link -->
         <a href="cart.html" class="cart-icon-wrapper" aria-label="Shopping Cart">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.5 5H18.2768C19.0446 5 19.526 5.82948 19.1451 6.49614L16.5758 10.9923C16.2198 11.6154 15.5571 12 14.8394 12H8M8 12L6.45625 14.47C6.03997 15.136 6.51881 16 7.30425 16H18M8 12L4.05279 4.10557C3.714 3.428 3.02148 3 2.26393 3H2M8 20C8 20.5523 7.55228 21 7 21C6.44772 21 6 20.5523 6 20C6 19.4477 6.44772 19 7 19C7.55228 19 8 19.4477 8 20ZM18 20C18 20.5523 17.5523 21 17 21C16.4477 21 16 20.5523 16 20C16 19.4477 16.4477 19 17 19C17.5523 19 18 19.4477 18 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M4.5 5H18.2768C19.0446 5 19.526 5.82948 19.1451 6.49614L16.5758 10.9923C16.2198 11.6154 15.5571 12 14.8394 12H8M8 12L6.45625 14.47C6.03997 15.136 6.51881 16 7.30425 16H18M8 12L4.05279 4.10557C3.714 3.428 3.02148 3 2.26393 3H2M8 20C8 20.5523 7.55228 21 7 21C6.44772 21 6 20.5523 6 20C6 19.4477 6.44772 19 7 19C7.55228 19 8 19.4477 8 20ZM18 20C18 20.5523 17.5523 21 17 21C16.4477 21 16 20.5523 16 20C16 19.4477 16.4477 19 17 19C17.5523 19 18 19.4477 18 20Z"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
           <span id="nav-cart-count" class="cart-badge">0</span>
         </a>
@@ -35,8 +61,12 @@
         <!-- Logout Link -->
         <a href="#" id="logout-link" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
-            <path fill-rule="evenodd" d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z" clip-rule="evenodd" />
-            <path fill-rule="evenodd" d="M19 10a.75.75 0 00-.75-.75H8.704l1.048-.943a.75.75 0 10-1.004-1.114l-2.5 2.25a.75.75 0 000 1.114l2.5 2.25a.75.75 0 101.004-1.114l-1.048-.943h9.546A.75.75 0 0019 10z" clip-rule="evenodd" />
+            <path fill-rule="evenodd"
+              d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z"
+              clip-rule="evenodd" />
+            <path fill-rule="evenodd"
+              d="M19 10a.75.75 0 00-.75-.75H8.704l1.048-.943a.75.75 0 10-1.004-1.114l-2.5 2.25a.75.75 0 000 1.114l2.5 2.25a.75.75 0 101.004-1.114l-1.048-.943h9.546A.75.75 0 0019 10z"
+              clip-rule="evenodd" />
           </svg>
           Logout
         </a>
@@ -56,7 +86,8 @@
               <span class="hero-btn-label b3">LEARN MORE</span>
               <div class="hero-btn-icon">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 14L14 4M14 4H7M14 4V11" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M4 14L14 4M14 4H7M14 4V11" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
               </div>
             </div>
@@ -64,7 +95,8 @@
               <span class="hero-btn-label b3">CONTACT US</span>
               <div class="hero-btn-icon">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 14L14 4M14 4H7M14 4V11" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M4 14L14 4M14 4H7M14 4V11" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
               </div>
             </div>
@@ -77,163 +109,512 @@
           <div class="hero-right-top">
             <div class="hero-heading-row">
               <h1 class="hero-heading-for">For</h1>
-              <svg class="hero-arrow-long" width="180" height="24" viewBox="0 0 180 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 12H176M176 12L164 2M176 12L164 22" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg class="hero-arrow-long" width="180" height="24" viewBox="0 0 180 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 12H176M176 12L164 2M176 12L164 22" stroke="white" stroke-width="4" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </div>
             <h1 class="hero-heading-main">EVERYONE BUT</h1>
             <h1 class="hero-heading-main">NOTANYONE</h1>
-            <p class="hero-body-text b2">We establish personal relationships with our boutiques, to make sure each is vetted for a stress-free shopping experience</p>
+            <p class="hero-body-text b2">We establish personal relationships with our boutiques, to make sure each is
+              vetted for a stress-free shopping experience</p>
             <p class="hero-body-bold b2"><b>OVER 10,000 STYLE AROUND THE WORLD</b></p>
           </div>
 
           <!-- Bottom Row -->
           <div class="hero-right-bottom">
-            <div class="hero-bottom-card">
+            <div class="hero-bottom-card hero-bottom-ripstop">
               <span class="hero-card-tag">#RIP STOP</span>
             </div>
-            <div class="hero-bottom-card">
+            <div class="hero-bottom-card hero-bottom-insulated">
               <span class="hero-card-tag">#INSULATED</span>
             </div>
           </div>
         </div>
       </div>
     </section>
-    
+
     <!-- Infinity Loop Carousel -->
     <div class="mrq-wrap">
       <div class="mrq-track" id="mrq">
       </div>
     </div>
 
-    <!-- Categories Section (Main 3 Articles) -->
-    <section class="container mb-12 relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Men's Clothing Article -->
-        <article class="category-card">
-          <img src="images/menclothing/category.jpg" alt="Men's Clothing" onerror="this.src='https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=800&auto=format&fit=crop';">
-          <div class="category-card-content">
-            <h2>Men's Clothing</h2>
-            <p>Explore our premium collection of men's apparel, from casual wear to formal attire.</p>
-            <a href="MenClothing.html" class="btn-outline" style="width: fit-content; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(8px);">Shop Now</a>
+    <!-- Categories Section -->
+    <section class="cat-section" id="categories">
+      <div class="cat-container">
+        <!-- Left Side -->
+        <div class="cat-left">
+          <!-- Top Row: Two small cards -->
+          <div class="cat-top-row">
+            <a href="KidsClothing.html" class="cat-small-card cat-kid">
+              <span class="cat-tag">KIDSWEAR</span>
+            </a>
+            <a href="WomenClothing.html" class="cat-small-card cat-women">
+              <span class="cat-tag">WOMENSWEAR</span>
+            </a>
           </div>
-        </article>
-
-        <!-- Women's Clothing Article -->
-        <article class="category-card">
-          <img src="images/womenclothing/category.jpg" alt="Women's Clothing" onerror="this.src='https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop';">
-          <div class="category-card-content">
-            <h2>Women's Clothing</h2>
-            <p>Discover the latest trends in women's fashion with our elegant and comfortable styles.</p>
-            <a href="WomenClothing.html" class="btn-outline" style="width: fit-content; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(8px);">Shop Now</a>
+          <!-- Bottom: Text + CTA -->
+          <div class="cat-bottom">
+            <div class="cat-bottom-text">
+              <h2 class="cat-heading"><span class="cat-heading-semi">Eah piece is designed</span> <span
+                  class="cat-heading-underline">to<br>move with you</span></h2>
+            </div>
+            <div class="cat-bottom-cta">
+              <a href="MenClothing.html" class="cat-shop-btn">DISCOVER COLLECTION</a>
+              <p class="cat-desc">Classic silhouettes, washed textures, and timeless everyday wear made for modern living.</p>
+            </div>
           </div>
-        </article>
+        </div>
 
-        <!-- Kids' Clothing Article -->
-        <article class="category-card">
-          <img src="images/kidsclothing/category.jpg" alt="Kids' Clothing" onerror="this.src='https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=800&auto=format&fit=crop';">
-          <div class="category-card-content">
-            <h2>Kids' Clothing</h2>
-            <p>Find adorable, durable, and comfortable clothing for children of all ages.</p>
-            <a href="KidsClothing.html" class="btn-outline" style="width: fit-content; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(8px);">Shop Now</a>
+        <!-- Right Side -->
+        <a href="MenClothing.html" class="cat-right-card cat-men">
+          <span class="cat-tag">MENSWEAR</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Most Popular Section -->
+    <section class="pop-section" id="most-popular">
+      <div class="pop-container">
+        <!-- Top Row -->
+        <div class="pop-top">
+          <!-- Left: Spinning Goos Button -->
+          <div class="pop-top-left">
+            <button class="goos-button">
+              <p class="goos-button__text">
+                <span style="--index: 0;">S</span>
+                <span style="--index: 1;">H</span>
+                <span style="--index: 2;">O</span>
+                <span style="--index: 3;">P</span>
+                <span style="--index: 4;"> </span>
+                <span style="--index: 5;">N</span>
+                <span style="--index: 6;">O</span>
+                <span style="--index: 7;">W</span>
+                <span style="--index: 8;"> </span>
+                <span style="--index: 9;">!</span>
+                <span style="--index: 10;"> </span>
+                <span style="--index: 11;">S</span>
+                <span style="--index: 12;">H</span>
+                <span style="--index: 13;">O</span>
+                <span style="--index: 14;">P</span>
+                <span style="--index: 15;"> </span>
+                <span style="--index: 16;">N</span>
+                <span style="--index: 17;">O</span>
+                <span style="--index: 18;">W</span>
+                <span style="--index: 19;"> </span>
+                <span style="--index: 20;">!</span>
+                <span style="--index: 21;"> </span>
+              </p>
+              <div class="goos-button__circle">
+                <svg viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="goos-button__icon"
+                  width="14">
+                  <path
+                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                    fill="currentColor"></path>
+                </svg>
+                <svg viewBox="0 0 14 15" fill="none" width="14" xmlns="http://www.w3.org/2000/svg"
+                  class="goos-button__icon goos-button__icon--copy">
+                  <path
+                    d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                    fill="currentColor"></path>
+                </svg>
+              </div>
+            </button>
           </div>
-        </article>
 
+          <!-- Right: Title + Description -->
+          <div class="pop-top-right">
+            <div class="pop-title-row">
+              <span class="pop-title"><img src="Assets/SSStar.svg" alt="Star" class="pop-star-icon">
+                Most Popular</span>
+            </div>
+            <p class="pop-desc">The pieces everyone is talking about. High-demand staples that define the current season.</p>
+          </div>
+        </div>
+
+        <!-- Bottom Row: 4 Product Cards -->
+        <div class="pop-products">
+          <!-- Product 1 -->
+          <article class="product-card" data-id="pop-001" data-name="Wireless Headphones" data-price="3679">
+            <div class="product-image-container">
+              <img src="images/menclothing/headphones.jpg" alt="Wireless Headphones"
+                onerror="this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop';">
+              <div class="price-tag">$3,679</div>
+            </div>
+            <div class="product-card-content">
+              <h2 class="product-name">Wireless Headphones</h2>
+              <p class="product-description">Noise cancellation, wireless connectivity, and premium sound quality.</p>
+              <div class="product-meta">
+                <div class="stars-review">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star empty.svg" alt="Star">
+                  <span class="review-count">123</span>
+                </div>
+                <span class="category-box">Men</span>
+              </div>
+              <button class="add-to-cart-btn">Add to card NOW!!</button>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card" data-id="pop-002" data-name="USB-C Hub" data-price="1800">
+            <div class="product-image-container">
+              <img src="images/menclothing/hub.jpg" alt="USB-C Hub"
+                onerror="this.src='https://images.unsplash.com/photo-1596756855118-2e0f40d86e92?q=80&w=600&auto=format&fit=crop';">
+              <div class="price-tag">1,800 DA</div>
+            </div>
+            <div class="product-card-content">
+              <h2 class="product-name">USB-C Hub</h2>
+              <p class="product-description">7-in-1 multiport hub for all your devices.</p>
+              <div class="product-meta">
+                <div class="stars-review">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <span class="review-count">85</span>
+                </div>
+                <span class="category-box">Men</span>
+              </div>
+              <button class="add-to-cart-btn">Add to card NOW!!</button>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card" data-id="pop-003" data-name="LED Desk Lamp" data-price="950">
+            <div class="product-image-container">
+              <img src="images/menclothing/lamp.jpg" alt="LED Desk Lamp"
+                onerror="this.src='https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=600&auto=format&fit=crop';">
+              <div class="price-tag">950 DA</div>
+            </div>
+            <div class="product-card-content">
+              <h2 class="product-name">LED Desk Lamp</h2>
+              <p class="product-description">Adjustable brightness and modern design.</p>
+              <div class="product-meta">
+                <div class="stars-review">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star empty.svg" alt="Star">
+                  <span class="review-count">56</span>
+                </div>
+                <span class="category-box">Men</span>
+              </div>
+              <button class="add-to-cart-btn">Add to card NOW!!</button>
+            </div>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="product-card" data-id="pop-004" data-name="Smart Watch" data-price="12000">
+            <div class="product-image-container">
+              <img src="images/menclothing/watch.jpg" alt="Smart Watch"
+                onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600&auto=format&fit=crop';">
+              <div class="price-tag">12,000 DA</div>
+            </div>
+            <div class="product-card-content">
+              <h2 class="product-name">Smart Watch</h2>
+              <p class="product-description">Track your fitness and stay connected.</p>
+              <div class="product-meta">
+                <div class="stars-review">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <span class="review-count">210</span>
+                </div>
+                <span class="category-box">Men</span>
+              </div>
+              <button class="add-to-cart-btn">Add to card NOW!!</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- We're Changing Section -->
+    <section class="changing-section" id="changing">
+      <div class="changing-container">
+        <!-- Left Panel -->
+        <div class="changing-left">
+          <button class="changing-learn-btn">
+            <span class="changing-btn-text">Learn more</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 14L14 4M14 4H7M14 4V11" stroke="#111" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="changing-right">
+          <!-- Top: Heading -->
+          <div class="changing-right-top">
+            <h2 class="changing-heading">WE'RE CHANGING<br>THE WAY THINGS<br>GET MADE</h2>
+          </div>
+
+          <!-- Bottom: Two info cards -->
+          <div class="changing-right-bottom">
+            <!-- Sustainability Card -->
+            <div class="changing-card">
+              <div class="changing-card-top">
+                <img src="Assets/SStar.svg" alt="Star" class="changing-star-icon">
+                <span class="changing-card-title">SUSTAINABILITY</span>
+              </div>
+              <div class="changing-card-bottom">
+                <p class="changing-card-desc">Fashion shouldn’t have an expiration date. We’ve ditched the fast-fashion cycle to focus on durable, pre-loved gear that actually improves with age.</p>
+              </div>
+            </div>
+
+            <!-- Mission Card -->
+            <div class="changing-card">
+              <div class="changing-card-top">
+                <img src="Assets/SStar.svg" alt="Star" class="changing-star-icon">
+                <span class="changing-card-title">MISSION</span>
+              </div>
+              <div class="changing-card-bottom">
+                <p class="changing-card-desc">Total transparency. We’re stripping back the noise of the industry to prove that high-end style and radical environmental responsibility can coexist.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Collection Section -->
+    <section class="pop-section" id="our-collection">
+      <div class="pop-container">
+        <!-- Top Row -->
+        <div class="pop-top">
+          <!-- Right: Title + Description -->
+          <div class="pop-top-right">
+            <div class="pop-title-row">
+              <span class="pop-title">
+                Our Collection</span>
+            </div>
+            <p class="pop-desc">Handpicked essentials designed for the modern lifestyle. Quality meeting utility in every detail.</p>
+          </div>
+        </div>
+
+        <!-- Bottom Row: 4 Product Cards -->
+        <div class="pop-products">
+          <!-- Product 1 -->
+          <article class="product-card" data-id="pop-001" data-name="Wireless Headphones" data-price="3679">
+            <div class="product-image-container">
+              <img src="images/menclothing/headphones.jpg" alt="Wireless Headphones"
+                onerror="this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop';">
+              <div class="price-tag">$3,679</div>
+            </div>
+            <div class="product-card-content">
+              <h2 class="product-name">Wireless Headphones</h2>
+              <p class="product-description">Noise cancellation, wireless connectivity, and premium sound quality.</p>
+              <div class="product-meta">
+                <div class="stars-review">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star empty.svg" alt="Star">
+                  <span class="review-count">123</span>
+                </div>
+                <span class="category-box">Men</span>
+              </div>
+              <button class="add-to-cart-btn">Add to card NOW!!</button>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card" data-id="pop-002" data-name="USB-C Hub" data-price="1800">
+            <div class="product-image-container">
+              <img src="images/menclothing/hub.jpg" alt="USB-C Hub"
+                onerror="this.src='https://images.unsplash.com/photo-1596756855118-2e0f40d86e92?q=80&w=600&auto=format&fit=crop';">
+              <div class="price-tag">1,800 DA</div>
+            </div>
+            <div class="product-card-content">
+              <h2 class="product-name">USB-C Hub</h2>
+              <p class="product-description">7-in-1 multiport hub for all your devices.</p>
+              <div class="product-meta">
+                <div class="stars-review">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <span class="review-count">85</span>
+                </div>
+                <span class="category-box">Men</span>
+              </div>
+              <button class="add-to-cart-btn">Add to card NOW!!</button>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card" data-id="pop-003" data-name="LED Desk Lamp" data-price="950">
+            <div class="product-image-container">
+              <img src="images/menclothing/lamp.jpg" alt="LED Desk Lamp"
+                onerror="this.src='https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=600&auto=format&fit=crop';">
+              <div class="price-tag">950 DA</div>
+            </div>
+            <div class="product-card-content">
+              <h2 class="product-name">LED Desk Lamp</h2>
+              <p class="product-description">Adjustable brightness and modern design.</p>
+              <div class="product-meta">
+                <div class="stars-review">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star empty.svg" alt="Star">
+                  <span class="review-count">56</span>
+                </div>
+                <span class="category-box">Men</span>
+              </div>
+              <button class="add-to-cart-btn">Add to card NOW!!</button>
+            </div>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="product-card" data-id="pop-004" data-name="Smart Watch" data-price="12000">
+            <div class="product-image-container">
+              <img src="images/menclothing/watch.jpg" alt="Smart Watch"
+                onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600&auto=format&fit=crop';">
+              <div class="price-tag">12,000 DA</div>
+            </div>
+            <div class="product-card-content">
+              <h2 class="product-name">Smart Watch</h2>
+              <p class="product-description">Track your fitness and stay connected.</p>
+              <div class="product-meta">
+                <div class="stars-review">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <img src="Assets/Star filled.svg" alt="Star">
+                  <span class="review-count">210</span>
+                </div>
+                <span class="category-box">Men</span>
+              </div>
+              <button class="add-to-cart-btn">Add to card NOW!!</button>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- Footer Section -->
   <footer class="custom-footer">
-  <div class="footer-inner-container">
-    <img src="Assets/Login/7/Footer Logo.svg" class="footer-bg-logo" alt="">
-    <div class="footer-left">
-      <h2 class="footer-heading">Built for everyday style</h2>
-      <p class="b3">Discover versatile pieces made for real life. Nivaro blends comfort, quality, and effortless style across men’s, women’s, and kids’ collections—so you always look put together without trying too hard.</p>
-      <button class="btn-footer-cta">
-        Shop the collection
-        <div class="arrow-wrapper">
-          <div class="arrow"></div>
+    <div class="footer-inner-container">
+      <img src="Assets/Login/7/Footer Logo.svg" class="footer-bg-logo" alt="">
+      <div class="footer-left">
+        <h2 class="footer-heading">Built for everyday style</h2>
+        <p class="b3">Discover versatile pieces made for real life. Nivaro blends comfort, quality, and effortless style
+          across men’s, women’s, and kids’ collections—so you always look put together without trying too hard.</p>
+        <button class="btn-footer-cta">
+          Shop the collection
+          <div class="arrow-wrapper">
+            <div class="arrow"></div>
+          </div>
+        </button>
+      </div>
+      <div class="footer-right">
+        <div class="footer-nav-group">
+          <p class="b2 footer-nav-title"><b>Pages</b></p>
+          <ul class="footer-nav-links">
+            <li><a href="MenClothing.html" class="b3">Men Clothing</a></li>
+            <li><a href="WomenClothing.html" class="b3">Women Clothing</a></li>
+            <li><a href="KidsClothing.html" class="b3">Kids Clothing</a></li>
+          </ul>
         </div>
-      </button>
-    </div>
-    <div class="footer-right">
-      <div class="footer-nav-group">
-        <p class="b2 footer-nav-title"><b>Pages</b></p>
-        <ul class="footer-nav-links">
-          <li><a href="MenClothing.html" class="b3">Men Clothing</a></li>
-          <li><a href="WomenClothing.html" class="b3">Women Clothing</a></li>
-          <li><a href="KidsClothing.html" class="b3">Kids Clothing</a></li>
-        </ul>
-      </div>
-      <div class="footer-social-container">
-        <ul class="social-list">
-          <li class="icon-content">
-            <a class="link" data-social="facebook" aria-label="Facebook" href="https://facebook.com/">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M48 24C48 10.7453 37.2547 0 24 0C10.7453 0 0 10.7453 0 24C0 35.255 7.74912 44.6995 18.2026 47.2934V31.3344H13.2538V24H18.2026V20.8397C18.2026 12.671 21.8995 8.8848 29.9194 8.8848C31.44 8.8848 34.0637 9.18336 35.137 9.48096V16.129C34.5706 16.0694 33.5866 16.0397 32.3645 16.0397C28.4294 16.0397 26.9088 17.5306 26.9088 21.4061V24H34.7482L33.4013 31.3344H26.9088V47.8243C38.7926 46.3891 48.001 36.2707 48.001 24H48Z" fill="#0866FF"/>
-              </svg>
-            </a>
-            <div class="tooltip">Facebook</div>
-          </li>
-          <li class="icon-content">
-            <a class="link" data-social="instagram" aria-label="Instagram" href="https://instagram.com/">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_footer_insta)">
-                  <path d="M24 4.32187C30.4125 4.32187 31.1719 4.35 33.6938 4.4625C36.0375 4.56562 37.3031 4.95938 38.1469 5.2875C39.2625 5.71875 40.0688 6.24375 40.9031 7.07812C41.7469 7.92188 42.2625 8.71875 42.6938 9.83438C43.0219 10.6781 43.4156 11.9531 43.5188 14.2875C43.6313 16.8187 43.6594 17.5781 43.6594 23.9813C43.6594 30.3938 43.6313 31.1531 43.5188 33.675C43.4156 36.0188 43.0219 37.2844 42.6938 38.1281C42.2625 39.2438 41.7375 40.05 40.9031 40.8844C40.0594 41.7281 39.2625 42.2438 38.1469 42.675C37.3031 43.0031 36.0281 43.3969 33.6938 43.5C31.1625 43.6125 30.4031 43.6406 24 43.6406C17.5875 43.6406 16.8281 43.6125 14.3063 43.5C11.9625 43.3969 10.6969 43.0031 9.85313 42.675C8.7375 42.2438 7.93125 41.7188 7.09688 40.8844C6.25313 40.0406 5.7375 39.2438 5.30625 38.1281C4.97813 37.2844 4.58438 36.0094 4.48125 33.675C4.36875 31.1438 4.34063 30.3844 4.34063 23.9813C4.34063 17.5688 4.36875 16.8094 4.48125 14.2875C4.58438 11.9437 4.97813 10.6781 5.30625 9.83438C5.7375 8.71875 6.2625 7.9125 7.09688 7.07812C7.94063 6.23438 8.7375 5.71875 9.85313 5.2875C10.6969 4.95938 11.9719 4.56562 14.3063 4.4625C16.8281 4.35 17.5875 4.32187 24 4.32187ZM24 0C17.4844 0 16.6688 0.028125 14.1094 0.140625C11.5594 0.253125 9.80625 0.665625 8.2875 1.25625C6.70313 1.875 5.3625 2.69062 4.03125 4.03125C2.69063 5.3625 1.875 6.70313 1.25625 8.27813C0.665625 9.80625 0.253125 11.55 0.140625 14.1C0.028125 16.6687 0 17.4844 0 24C0 30.5156 0.028125 31.3313 0.140625 33.8906C0.253125 36.4406 0.665625 38.1938 1.25625 39.7125C1.875 41.2969 2.69063 42.6375 4.03125 43.9688C5.3625 45.3 6.70313 46.125 8.27813 46.7344C9.80625 47.325 11.55 47.7375 14.1 47.85C16.6594 47.9625 17.475 47.9906 23.9906 47.9906C30.5063 47.9906 31.3219 47.9625 33.8813 47.85C36.4313 47.7375 38.1844 47.325 39.7031 46.7344C41.2781 46.125 42.6188 45.3 43.95 43.9688C45.2813 42.6375 46.1063 41.2969 46.7156 39.7219C47.3063 38.1938 47.7188 36.45 47.8313 33.9C47.9438 31.3406 47.9719 30.525 47.9719 24.0094C47.9719 17.4938 47.9438 16.6781 47.8313 14.1188C47.7188 11.5688 47.3063 9.81563 46.7156 8.29688C46.125 6.70312 45.3094 5.3625 43.9688 4.03125C42.6375 2.7 41.2969 1.875 39.7219 1.26562C38.1938 0.675 36.45 0.2625 33.9 0.15C31.3313 0.028125 30.5156 0 24 0Z" fill="black"/>
-                  <path d="M24 11.6719C17.1938 11.6719 11.6719 17.1938 11.6719 24C11.6719 30.8062 17.1938 36.3281 24 36.3281C30.8062 36.3281 36.3281 30.8062 36.3281 24C36.3281 17.1938 30.8062 11.6719 24 11.6719ZM24 31.9969C19.5844 31.9969 16.0031 28.4156 16.0031 24C16.0031 19.5844 19.5844 16.0031 24 16.0031C28.4156 16.0031 31.9969 19.5844 31.9969 24C31.9969 28.4156 28.4156 31.9969 24 31.9969Z" fill="black"/>
-                  <path d="M39.6937 11.1844C39.6937 12.7782 38.4 14.0625 36.8156 14.0625C35.2219 14.0625 33.9375 12.7688 33.9375 11.1844C33.9375 9.59065 35.2313 8.30627 36.8156 8.30627C38.4 8.30627 39.6937 9.60003 39.6937 11.1844Z" fill="black"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_footer_insta">
-                    <rect width="48" height="48" fill="white"/>
-                  </clipPath>
-                </defs>
-              </svg>
-            </a>
-            <div class="tooltip">Instagram</div>
-          </li>
-          <li class="icon-content">
-            <a class="link" data-social="whatsapp" aria-label="Whatsapp" href="https://whatsapp.com/">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 48L3.374 35.674C1.292 32.066 0.198 27.976 0.2 23.782C0.206 10.67 10.876 0 23.986 0C30.348 0.002 36.32 2.48 40.812 6.976C45.302 11.472 47.774 17.448 47.772 23.804C47.766 36.918 37.096 47.588 23.986 47.588C20.006 47.586 16.084 46.588 12.61 44.692L0 48ZM13.194 40.386C16.546 42.376 19.746 43.568 23.978 43.57C34.874 43.57 43.75 34.702 43.756 23.804C43.76 12.876 34.926 4.02 23.994 4.016C13.09 4.016 4.22 12.884 4.216 23.784C4.214 28.234 5.518 31.566 7.708 35.052L5.71 42.348L13.194 40.386ZM35.968 29.458C35.82 29.21 35.424 29.062 34.828 28.764C34.234 28.466 31.312 27.028 30.766 26.83C30.222 26.632 29.826 26.532 29.428 27.128C29.032 27.722 27.892 29.062 27.546 29.458C27.2 29.854 26.852 29.904 26.258 29.606C25.664 29.308 23.748 28.682 21.478 26.656C19.712 25.08 18.518 23.134 18.172 22.538C17.826 21.944 18.136 21.622 18.432 21.326C18.7 21.06 19.026 20.632 19.324 20.284C19.626 19.94 19.724 19.692 19.924 19.294C20.122 18.898 20.024 18.55 19.874 18.252C19.724 17.956 18.536 15.03 18.042 13.84C17.558 12.682 17.068 12.838 16.704 12.82L15.564 12.8C15.168 12.8 14.524 12.948 13.98 13.544C13.436 14.14 11.9 15.576 11.9 18.502C11.9 21.428 14.03 24.254 14.326 24.65C14.624 25.046 18.516 31.05 24.478 33.624C25.896 34.236 27.004 34.602 27.866 34.876C29.29 35.328 30.586 35.264 31.61 35.112C32.752 34.942 35.126 33.674 35.622 32.286C36.118 30.896 36.118 29.706 35.968 29.458Z" fill="#25D366"/>
-              </svg>
-            </a>
-            <div class="tooltip">Whatsapp</div>
-          </li>
-          <li class="icon-content">
-            <a class="link" data-social="pinterest" aria-label="Pinterest" href="https://pinterest.com/">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_footer_pin)">
-                  <path d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="white"/>
-                  <path d="M24 0C10.7457 0 0 10.7457 0 24C0 34.1728 6.32099 42.8642 15.2494 46.3605C15.0321 44.4642 14.8543 41.5407 15.3284 39.4667C15.763 37.5901 18.1333 27.5358 18.1333 27.5358C18.1333 27.5358 17.4222 26.0938 17.4222 23.9802C17.4222 20.642 19.358 18.1531 21.7679 18.1531C23.8222 18.1531 24.8099 19.6938 24.8099 21.5309C24.8099 23.5852 23.5062 26.6667 22.8148 29.5309C22.242 31.921 24.0198 33.8765 26.3704 33.8765C30.637 33.8765 33.916 29.3728 33.916 22.8938C33.916 17.1457 29.7877 13.1358 23.8815 13.1358C17.0469 13.1358 13.037 18.2519 13.037 23.5457C13.037 25.6 13.8272 27.8123 14.8148 29.0173C15.0123 29.2543 15.0321 29.4716 14.9728 29.7086C14.7951 30.4593 14.3802 32.0988 14.3012 32.4346C14.2025 32.8691 13.9457 32.9679 13.4914 32.7506C10.4889 31.3481 8.61235 26.9827 8.61235 23.4469C8.61235 15.8815 14.1037 8.9284 24.4741 8.9284C32.7901 8.9284 39.2691 14.8543 39.2691 22.7951C39.2691 31.0716 34.0543 37.7284 26.8247 37.7284C24.3951 37.7284 22.1037 36.4642 21.3333 34.963C21.3333 34.963 20.1284 39.5457 19.8321 40.6716C19.2988 42.7654 17.837 45.3728 16.8494 46.9728C19.1012 47.6642 21.4716 48.0395 23.9605 48.0395C37.2148 48.0395 47.9605 37.2938 47.9605 24.0395C48 10.7457 37.2543 0 24 0Z" fill="#E60019"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_footer_pin">
-                    <rect width="48" height="48" fill="white"/>
-                  </clipPath>
-                </defs>
-              </svg>
-            </a>
-            <div class="tooltip">Pinterest</div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-bottom-container">
-      <p class="b3">© 2026 Nivaro. All rights reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="#" class="b3">Privacy Policy</a>
-        <a href="#" class="b3">Terms of Service</a>
+        <div class="footer-social-container">
+          <ul class="social-list">
+            <li class="icon-content">
+              <a class="link" data-social="facebook" aria-label="Facebook" href="https://facebook.com/">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M48 24C48 10.7453 37.2547 0 24 0C10.7453 0 0 10.7453 0 24C0 35.255 7.74912 44.6995 18.2026 47.2934V31.3344H13.2538V24H18.2026V20.8397C18.2026 12.671 21.8995 8.8848 29.9194 8.8848C31.44 8.8848 34.0637 9.18336 35.137 9.48096V16.129C34.5706 16.0694 33.5866 16.0397 32.3645 16.0397C28.4294 16.0397 26.9088 17.5306 26.9088 21.4061V24H34.7482L33.4013 31.3344H26.9088V47.8243C38.7926 46.3891 48.001 36.2707 48.001 24H48Z"
+                    fill="#0866FF" />
+                </svg>
+              </a>
+              <div class="tooltip">Facebook</div>
+            </li>
+            <li class="icon-content">
+              <a class="link" data-social="instagram" aria-label="Instagram" href="https://instagram.com/">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_footer_insta)">
+                    <path
+                      d="M24 4.32187C30.4125 4.32187 31.1719 4.35 33.6938 4.4625C36.0375 4.56562 37.3031 4.95938 38.1469 5.2875C39.2625 5.71875 40.0688 6.24375 40.9031 7.07812C41.7469 7.92188 42.2625 8.71875 42.6938 9.83438C43.0219 10.6781 43.4156 11.9531 43.5188 14.2875C43.6313 16.8187 43.6594 17.5781 43.6594 23.9813C43.6594 30.3938 43.6313 31.1531 43.5188 33.675C43.4156 36.0188 43.0219 37.2844 42.6938 38.1281C42.2625 39.2438 41.7375 40.05 40.9031 40.8844C40.0594 41.7281 39.2625 42.2438 38.1469 42.675C37.3031 43.0031 36.0281 43.3969 33.6938 43.5C31.1625 43.6125 30.4031 43.6406 24 43.6406C17.5875 43.6406 16.8281 43.6125 14.3063 43.5C11.9625 43.3969 10.6969 43.0031 9.85313 42.675C8.7375 42.2438 7.93125 41.7188 7.09688 40.8844C6.25313 40.0406 5.7375 39.2438 5.30625 38.1281C4.97813 37.2844 4.58438 36.0094 4.48125 33.675C4.36875 31.1438 4.34063 30.3844 4.34063 23.9813C4.34063 17.5688 4.36875 16.8094 4.48125 14.2875C4.58438 11.9437 4.97813 10.6781 5.30625 9.83438C5.7375 8.71875 6.2625 7.9125 7.09688 7.07812C7.94063 6.23438 8.7375 5.71875 9.85313 5.2875C10.6969 4.95938 11.9719 4.56562 14.3063 4.4625C16.8281 4.35 17.5875 4.32187 24 4.32187ZM24 0C17.4844 0 16.6688 0.028125 14.1094 0.140625C11.5594 0.253125 9.80625 0.665625 8.2875 1.25625C6.70313 1.875 5.3625 2.69062 4.03125 4.03125C2.69063 5.3625 1.875 6.70313 1.25625 8.27813C0.665625 9.80625 0.253125 11.55 0.140625 14.1C0.028125 16.6687 0 17.4844 0 24C0 30.5156 0.028125 31.3313 0.140625 33.8906C0.253125 36.4406 0.665625 38.1938 1.25625 39.7125C1.875 41.2969 2.69063 42.6375 4.03125 43.9688C5.3625 45.3 6.70313 46.125 8.27813 46.7344C9.80625 47.325 11.55 47.7375 14.1 47.85C16.6594 47.9625 17.475 47.9906 23.9906 47.9906C30.5063 47.9906 31.3219 47.9625 33.8813 47.85C36.4313 47.7375 38.1844 47.325 39.7031 46.7344C41.2781 46.125 42.6188 45.3 43.95 43.9688C45.2813 42.6375 46.1063 41.2969 46.7156 39.7219C47.3063 38.1938 47.7188 36.45 47.8313 33.9C47.9438 31.3406 47.9719 30.525 47.9719 24.0094C47.9719 17.4938 47.9438 16.6781 47.8313 14.1188C47.7188 11.5688 47.3063 9.81563 46.7156 8.29688C46.125 6.70312 45.3094 5.3625 43.9688 4.03125C42.6375 2.7 41.2969 1.875 39.7219 1.26562C38.1938 0.675 36.45 0.2625 33.9 0.15C31.3313 0.028125 30.5156 0 24 0Z"
+                      fill="black" />
+                    <path
+                      d="M24 11.6719C17.1938 11.6719 11.6719 17.1938 11.6719 24C11.6719 30.8062 17.1938 36.3281 24 36.3281C30.8062 36.3281 36.3281 30.8062 36.3281 24C36.3281 17.1938 30.8062 11.6719 24 11.6719ZM24 31.9969C19.5844 31.9969 16.0031 28.4156 16.0031 24C16.0031 19.5844 19.5844 16.0031 24 16.0031C28.4156 16.0031 31.9969 19.5844 31.9969 24C31.9969 28.4156 28.4156 31.9969 24 31.9969Z"
+                      fill="black" />
+                    <path
+                      d="M39.6937 11.1844C39.6937 12.7782 38.4 14.0625 36.8156 14.0625C35.2219 14.0625 33.9375 12.7688 33.9375 11.1844C33.9375 9.59065 35.2313 8.30627 36.8156 8.30627C38.4 8.30627 39.6937 9.60003 39.6937 11.1844Z"
+                      fill="black" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_footer_insta">
+                      <rect width="48" height="48" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+              <div class="tooltip">Instagram</div>
+            </li>
+            <li class="icon-content">
+              <a class="link" data-social="whatsapp" aria-label="Whatsapp" href="https://whatsapp.com/">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 48L3.374 35.674C1.292 32.066 0.198 27.976 0.2 23.782C0.206 10.67 10.876 0 23.986 0C30.348 0.002 36.32 2.48 40.812 6.976C45.302 11.472 47.774 17.448 47.772 23.804C47.766 36.918 37.096 47.588 23.986 47.588C20.006 47.586 16.084 46.588 12.61 44.692L0 48ZM13.194 40.386C16.546 42.376 19.746 43.568 23.978 43.57C34.874 43.57 43.75 34.702 43.756 23.804C43.76 12.876 34.926 4.02 23.994 4.016C13.09 4.016 4.22 12.884 4.216 23.784C4.214 28.234 5.518 31.566 7.708 35.052L5.71 42.348L13.194 40.386ZM35.968 29.458C35.82 29.21 35.424 29.062 34.828 28.764C34.234 28.466 31.312 27.028 30.766 26.83C30.222 26.632 29.826 26.532 29.428 27.128C29.032 27.722 27.892 29.062 27.546 29.458C27.2 29.854 26.852 29.904 26.258 29.606C25.664 29.308 23.748 28.682 21.478 26.656C19.712 25.08 18.518 23.134 18.172 22.538C17.826 21.944 18.136 21.622 18.432 21.326C18.7 21.06 19.026 20.632 19.324 20.284C19.626 19.94 19.724 19.692 19.924 19.294C20.122 18.898 20.024 18.55 19.874 18.252C19.724 17.956 18.536 15.03 18.042 13.84C17.558 12.682 17.068 12.838 16.704 12.82L15.564 12.8C15.168 12.8 14.524 12.948 13.98 13.544C13.436 14.14 11.9 15.576 11.9 18.502C11.9 21.428 14.03 24.254 14.326 24.65C14.624 25.046 18.516 31.05 24.478 33.624C25.896 34.236 27.004 34.602 27.866 34.876C29.29 35.328 30.586 35.264 31.61 35.112C32.752 34.942 35.126 33.674 35.622 32.286C36.118 30.896 36.118 29.706 35.968 29.458Z"
+                    fill="#25D366" />
+                </svg>
+              </a>
+              <div class="tooltip">Whatsapp</div>
+            </li>
+            <li class="icon-content">
+              <a class="link" data-social="pinterest" aria-label="Pinterest" href="https://pinterest.com/">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_footer_pin)">
+                    <path
+                      d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z"
+                      fill="white" />
+                    <path
+                      d="M24 0C10.7457 0 0 10.7457 0 24C0 34.1728 6.32099 42.8642 15.2494 46.3605C15.0321 44.4642 14.8543 41.5407 15.3284 39.4667C15.763 37.5901 18.1333 27.5358 18.1333 27.5358C18.1333 27.5358 17.4222 26.0938 17.4222 23.9802C17.4222 20.642 19.358 18.1531 21.7679 18.1531C23.8222 18.1531 24.8099 19.6938 24.8099 21.5309C24.8099 23.5852 23.5062 26.6667 22.8148 29.5309C22.242 31.921 24.0198 33.8765 26.3704 33.8765C30.637 33.8765 33.916 29.3728 33.916 22.8938C33.916 17.1457 29.7877 13.1358 23.8815 13.1358C17.0469 13.1358 13.037 18.2519 13.037 23.5457C13.037 25.6 13.8272 27.8123 14.8148 29.0173C15.0123 29.2543 15.0321 29.4716 14.9728 29.7086C14.7951 30.4593 14.3802 32.0988 14.3012 32.4346C14.2025 32.8691 13.9457 32.9679 13.4914 32.7506C10.4889 31.3481 8.61235 26.9827 8.61235 23.4469C8.61235 15.8815 14.1037 8.9284 24.4741 8.9284C32.7901 8.9284 39.2691 14.8543 39.2691 22.7951C39.2691 31.0716 34.0543 37.7284 26.8247 37.7284C24.3951 37.7284 22.1037 36.4642 21.3333 34.963C21.3333 34.963 20.1284 39.5457 19.8321 40.6716C19.2988 42.7654 17.837 45.3728 16.8494 46.9728C19.1012 47.6642 21.4716 48.0395 23.9605 48.0395C37.2148 48.0395 47.9605 37.2938 47.9605 24.0395C48 10.7457 37.2543 0 24 0Z"
+                      fill="#E60019" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_footer_pin">
+                      <rect width="48" height="48" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+              <div class="tooltip">Pinterest</div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p class="b3">© 2026 Nivaro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="b3">Privacy Policy</a>
+          <a href="#" class="b3">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
   <script src="script.js"></script>
 </body>
+
 </html>
