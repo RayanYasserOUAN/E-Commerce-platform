@@ -177,4 +177,106 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "index.html";
         });
     });
+
+    // 9. Chatbot Logic
+    const chatbotHTML = `
+      <div id="chatbot-container">
+        <!-- Floating Button -->
+        <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open Chatbot">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3C14.7538 3.00397 16.914 3.89999 18.5076 5.49238C20.1013 7.08477 20.9973 9.24505 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chatbot-window" class="chatbot-window">
+          <div class="chatbot-header">
+            <h3>Support Nivaro</h3>
+            <button id="chatbot-close" class="chatbot-close" aria-label="Close Chat">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div id="chatbot-messages" class="chatbot-messages">
+            <!-- Initial Message -->
+            <div class="chat-message bot">
+              Bonjour ! 👋 Je suis l'assistant ShopHub de Nivaro. Comment puis-je vous aider aujourd'hui ?
+              <div class="chatbot-options">
+                <button class="chatbot-option-btn" data-faq="order">Suivre ma commande</button>
+                <button class="chatbot-option-btn" data-faq="shipping">Délais de livraison</button>
+                <button class="chatbot-option-btn" data-faq="returns">Politique de retour</button>
+                <button class="chatbot-option-btn" data-faq="contact">Contacter un humain</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', chatbotHTML);
+
+    const chatbotToggle = document.getElementById("chatbot-toggle");
+    const chatbotWindow = document.getElementById("chatbot-window");
+    const chatbotClose = document.getElementById("chatbot-close");
+    const chatbotMessages = document.getElementById("chatbot-messages");
+
+    function openChat() {
+        chatbotWindow.classList.add("active");
+    }
+
+    function closeChat() {
+        chatbotWindow.classList.remove("active");
+    }
+
+    if (chatbotToggle) chatbotToggle.addEventListener("click", openChat);
+    if (chatbotClose) chatbotClose.addEventListener("click", closeChat);
+
+    // FAQ System Logic
+    const faqAnswers = {
+        "order": "Pour suivre votre commande, veuillez vous connecter et accéder à la section 'Mes Commandes', ou consulter le lien envoyé par email 📦.",
+        "shipping": "Nos délais de livraison standard sont de 2 à 5 jours ouvrés à travers le pays. La livraison express est disponible en 24h 🚚.",
+        "returns": "Vous avez 30 jours pour retourner vos articles gratuitement. Ils doivent être dans leur état d'origine avec les étiquettes 🔄.",
+        "contact": "Notre service client est disponible du Lundi au Vendredi de 9h à 18h. Vous pouvez nous envoyer un email à support@nivaro.dz ✉️."
+    };
+
+    function addMessage(text, sender) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `chat-message ${sender}`;
+        msgDiv.innerHTML = text;
+        chatbotMessages.appendChild(msgDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to bottom
+    }
+
+    chatbotMessages.addEventListener("click", function(e) {
+        if (e.target.classList.contains("chatbot-option-btn")) {
+            const topic = e.target.getAttribute("data-faq");
+            const questionText = e.target.textContent;
+            
+            // Hide the options after clicking to prevent repeated clicking on old messages
+            e.target.parentElement.style.display = 'none';
+
+            // Add user message
+            addMessage(questionText, 'user');
+
+            // Simulate typing delay, then answer
+            setTimeout(() => {
+                const answer = faqAnswers[topic];
+                
+                // Construct follow up message with "Anything else?" options
+                const followUpHTML = `
+                    ${answer}
+                    <div class="chatbot-options" style="margin-top: 10px;">
+                        <button class="chatbot-option-btn" data-faq="order">Suivre ma commande</button>
+                        <button class="chatbot-option-btn" data-faq="shipping">Délais de livraison</button>
+                        <button class="chatbot-option-btn" data-faq="returns">Politique de retour</button>
+                        <button class="chatbot-option-btn" data-faq="contact">Contacter un humain</button>
+                    </div>
+                `;
+                addMessage(followUpHTML, 'bot');
+            }, 600);
+        }
+    });
+
 });
