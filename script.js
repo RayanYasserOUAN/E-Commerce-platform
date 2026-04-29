@@ -107,6 +107,22 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCartSidebar();
     }
 
+    // Quantity Selector Logic
+    document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("qty-btn")) {
+            const container = e.target.closest(".qty-selector");
+            const input = container.querySelector(".qty-input");
+            let val = parseInt(input.value) || 1;
+            
+            if (e.target.classList.contains("plus")) {
+                val++;
+            } else if (e.target.classList.contains("minus")) {
+                if (val > 1) val--;
+            }
+            input.value = val;
+        }
+    });
+
     document.querySelectorAll(".add-to-cart-btn").forEach(function (btn) {
         btn.addEventListener("click", function () {
             const card = btn.closest(".product-card");
@@ -123,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
             btn.textContent = '✓ Added!';
             btn.disabled = true;
             setTimeout(() => {
-                btn.textContent = 'Add to card NOW!!';
+                btn.textContent = 'Add to card';
                 btn.disabled = false;
             }, 1000);
         });
