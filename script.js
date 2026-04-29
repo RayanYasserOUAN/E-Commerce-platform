@@ -76,13 +76,22 @@ document.addEventListener("DOMContentLoaded", function () {
             const card = btn.closest(".product-card");
             if (!card) return;
 
-            const id = btn.getAttribute("data-id");
-            const name = btn.getAttribute("data-name");
-            const price = parseFloat(btn.getAttribute("data-price"));
+            // data-id, data-name, data-price live on the article.product-card element
+            const id    = card.getAttribute("data-id");
+            const name  = card.getAttribute("data-name");
+            const price = parseFloat(card.getAttribute("data-price"));
             const qtyInput = card.querySelector(".qty-input");
             const qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
 
             addItem(id, name, price, qty);
+
+            // Visual feedback: briefly animate the button
+            btn.textContent = '✓ Added!';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.textContent = 'Add to Cart';
+                btn.disabled = false;
+            }, 1000);
         });
     });
 
@@ -93,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const cart = getCart();
 
             if (cart.length === 0) {
-                alert("Your cart is empty!");
+                showToast('🛒 Your cart is empty! Add items before checking out.', 'error');
                 return;
             }
 
@@ -105,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 finalTotal.textContent =
                     "✅ Order placed! Total: " + grandTotal.toLocaleString() + " DA";
             } else {
-                alert("Order placed! Total: " + grandTotal.toLocaleString() + " DA");
+                showToast('✅ Order placed! Total: ' + grandTotal.toLocaleString() + ' DA', 'success');
             }
 
             // Save order to history
@@ -278,5 +287,76 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 600);
         }
     });
+
+    // 10. Sidebar Toggle Logic
+    // Works on ALL pages that have the sidebar markup
+    const sidebarToggle  = document.getElementById('sidebar-toggle');
+    const appHeader      = document.querySelector('.app-header');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+    if (sidebarToggle && appHeader && sidebarOverlay) {
+        function openSidebar() {
+            appHeader.classList.add('open');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // prevent scroll while open
+        }
+
+        function closeSidebar() {
+            appHeader.classList.remove('open');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function toggleSidebar() {
+            appHeader.classList.contains('open') ? closeSidebar() : openSidebar();
+        }
+
+        sidebarToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Close sidebar when any nav link or cart link is clicked (mobile UX)
+        document.querySelectorAll('.nav-link, .cart-icon-wrapper, .btn-logout-sidebar').forEach(link => {
+            link.addEventListener('click', () => {
+                closeSidebar();
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeSidebar();
+        });
+    }
+
+    // 11. Active Link Highlighter
+    const currentPath = window.location.pathname.split('/').pop() || 'main.html';
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref && linkHref === currentPath) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+
+    // 12. Toast Notification System
+    function showToast(message, type = 'info') {
+        // Remove any existing toasts
+        const existing = document.getElementById('app-toast');
+        if (existing) existing.remove();
+
+        const toast = document.createElement('div');
+        toast.id = 'app-toast';
+        toast.className = `app-toast app-toast--${type}`;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        // Trigger animation
+        requestAnimationFrame(() => toast.classList.add('app-toast--visible'));
+
+        // Auto-remove after 3.5s
+        setTimeout(() => {
+            toast.classList.remove('app-toast--visible');
+            setTimeout(() => toast.remove(), 400);
+        }, 3500);
+    }
 
 });
