@@ -396,6 +396,7 @@ th {
   background: transparent;
   outline: none;
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .qty-selector .qty-input::-webkit-outer-spin-button,
