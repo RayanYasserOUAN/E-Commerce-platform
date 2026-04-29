@@ -386,6 +386,19 @@ th {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 28px;
+  height: 28px;
+}
+
+.qty-btn:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.qty-btn:active {
+  transform: scale(0.85);
 }
 
 .qty-selector .qty-input {
