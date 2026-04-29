@@ -431,6 +431,12 @@ th {
   transform: translateY(-1px);
 }
 
+.add-to-cart-btn:disabled {
+  background-color: #16a34a !important;
+  cursor: default;
+  opacity: 1;
+}
+
 
 
 /* Input styles */
@@ -865,6 +871,8 @@ th {
 
 .animate-fade-in-up {
   opacity: 0;
+}
+.animate-fade-in-up.reveal-visible {
   animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
@@ -914,21 +922,29 @@ th {
 
 .animate-fade-in-down {
   opacity: 0;
+}
+.animate-fade-in-down.reveal-visible {
   animation: fadeInDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .animate-fade-in-left {
   opacity: 0;
+}
+.animate-fade-in-left.reveal-visible {
   animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .animate-fade-in-right {
   opacity: 0;
+}
+.animate-fade-in-right.reveal-visible {
   animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .animate-scale-in {
   opacity: 0;
+}
+.animate-scale-in.reveal-visible {
   animation: scaleIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 

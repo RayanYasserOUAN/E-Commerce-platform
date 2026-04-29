@@ -373,3 +373,20 @@ const currentPath = window.location.pathname.split('/').pop() || 'main.html';
 document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.toggle('active', link.getAttribute('href') === currentPath);
 });
+
+// 12. Scroll Triggered Animations (Viewport Reveal)
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            revealObserver.unobserve(entry.target); // Only animate once
+        }
+    });
+}, {
+    threshold: 0.1, // Trigger when 10% of the element is visible
+    rootMargin: '0px 0px -20px 0px'
+});
+
+document.querySelectorAll('[class*="animate-"]').forEach(el => {
+    revealObserver.observe(el);
+});
