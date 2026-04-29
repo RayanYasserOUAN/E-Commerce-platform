@@ -21,12 +21,14 @@
         <h1 class="login-title">Log In</h1>
         <p class="login-subtitle">Log in to your account to start shopping</p>
 
-        <form onsubmit="event.preventDefault();">
+        <div id="error-msg" style="color: #ff4d4d; font-size: 0.875rem; margin-bottom: 1rem; display: none;"></div>
+
+        <form id="login-form">
           <div class="form-group">
-            <label class="form-label" for="email">Email</label>
+            <label class="form-label" for="username">Email</label>
             <div class="input-wrapper">
               <img src="Assets/Login/7/mail-01.svg" class="input-icon" alt="Email Icon">
-              <input type="email" id="email" class="form-input-login" placeholder="Enter your email">
+              <input type="email" id="username" class="form-input-login" placeholder="Enter your email" required>
             </div>
           </div>
 
@@ -34,7 +36,7 @@
             <label class="form-label" for="password">Password</label>
             <div class="input-wrapper">
               <img src="Assets/Login/7/lock.svg" class="input-icon" alt="Password Icon">
-              <input type="password" id="password" class="form-input-login" placeholder="Enter your Password">
+              <input type="password" id="password" class="form-input-login" placeholder="Enter your Password" required>
             </div>
           </div>
 
@@ -50,12 +52,12 @@
         </form>
 
         <p class="signup-text">
-          Don't have an account? <span class="signup-link">Sign Up</span>
+          Don't have an account? <span class="signup-link">admin@gmail.com / 1234 or rayan@gmail.com / pass1  </span>
         </p>
 
       <!-- Demo credentials hint 
         <div class="auth-hint">
-          <p4>Demo: <strong>admin / admin123</strong> or <strong>customer1 / pass1234</strong></p4>
+          <p4>Demo: <strong>admin@gmail.com / 1234</strong> or <strong>rayan@gmail.com / pass1</strong></p4>
         </div>
       -->
       </div>
@@ -71,5 +73,6 @@
     </div>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>

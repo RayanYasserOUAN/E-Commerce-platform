@@ -15,13 +15,31 @@ if (menuToggle && mainNav) {
   });
 }
 
+function showToast(message, type = 'info') {
+    const existing = document.getElementById('app-toast');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.id = 'app-toast';
+    toast.className = `app-toast app-toast--${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    requestAnimationFrame(() => toast.classList.add('app-toast--visible'));
+
+    setTimeout(() => {
+        toast.classList.remove('app-toast--visible');
+        setTimeout(() => toast.remove(), 400);
+    }, 3500);
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // 1. Hardcoded accounts for authentication
     const ACCOUNTS = [
-        { username: "admin", password: "1234" },
-        { username: "rayan", password: "pass1" },
-        { username: "student", password: "wad2026" }
+        { username: "admin@gmail.com", password: "1234" },
+        { username: "rayan@gmail.com", password: "pass1" },
+        { username: "student@gmail.com", password: "wad2026" }
     ];
 
     // 2. Login Handling
@@ -43,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 if (errorMsg) {
                     errorMsg.style.display = "block";
-                    errorMsg.textContent = "Incorrect username or password.";
+                    errorMsg.textContent = "Incorrect Email or Password.";
                 }
             }
         });
@@ -94,13 +112,20 @@ document.addEventListener("DOMContentLoaded", function () {
             const card = btn.closest(".product-card");
             if (!card) return;
 
-            const id = btn.getAttribute("data-id");
-            const name = btn.getAttribute("data-name");
-            const price = parseFloat(btn.getAttribute("data-price"));
+            const id = card.getAttribute("data-id");
+            const name = card.getAttribute("data-name");
+            const price = parseFloat(card.getAttribute("data-price"));
             const qtyInput = card.querySelector(".qty-input");
             const qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
 
             addItem(id, name, price, qty);
+
+            btn.textContent = '✓ Added!';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.textContent = 'Add to card NOW!!';
+                btn.disabled = false;
+            }, 1000);
         });
     });
 
@@ -111,20 +136,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const cart = getCart();
 
             if (cart.length === 0) {
-                alert("Your cart is empty!");
+                showToast('🛒 Your cart is empty!', 'error');
                 return;
             }
 
             const grandTotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-
-            // Show in footer
-            const finalTotal = document.getElementById("final-total");
-            if (finalTotal) {
-                finalTotal.textContent =
-                    "✅ Order placed! Total: " + grandTotal.toLocaleString() + " DA";
-            } else {
-                alert("Order placed! Total: " + grandTotal.toLocaleString() + " DA");
-            }
 
             // Save order to history
             const orders = JSON.parse(localStorage.getItem("orders")) || [];
@@ -135,13 +151,15 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             localStorage.setItem("orders", JSON.stringify(orders));
 
+            showToast('✅ Order placed! Total: ' + grandTotal.toLocaleString() + ' DA', 'success');
+
             // Clear cart
             saveCart([]);
             updateCartSidebar();
             
             // If we are on the cart page, reload to reflect empty cart
             if (document.getElementById("cart-table-body")) {
-                 location.reload();
+                 setTimeout(() => location.reload(), 1500);
             }
         });
     }
@@ -298,3 +316,44 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+// 10. Sidebar Toggle Logic
+const sidebarToggle  = document.getElementById('sidebar-toggle');
+const appHeader      = document.querySelector('.app-header');
+const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+if (sidebarToggle && appHeader && sidebarOverlay) {
+    function openSidebar() {
+        appHeader.classList.add('open');
+        sidebarOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';  // lock page scroll
+    }
+
+    function closeSidebar() {
+        appHeader.classList.remove('open');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Toggle on ⋮ button click
+    sidebarToggle.addEventListener('click', () =>
+        appHeader.classList.contains('open') ? closeSidebar() : openSidebar()
+    );
+
+    // Close when clicking the dark overlay (outside sidebar)
+    sidebarOverlay.addEventListener('click', closeSidebar);
+
+    // Close when clicking any navigation link
+    document.querySelectorAll('.nav-link, .cart-icon-wrapper, .btn-logout-sidebar')
+        .forEach(link => link.addEventListener('click', closeSidebar));
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeSidebar();
+    });
+}
+
+// 11. Active Link Highlighting
+const currentPath = window.location.pathname.split('/').pop() || 'main.html';
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === currentPath);
+});
