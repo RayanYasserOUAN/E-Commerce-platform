@@ -2,7 +2,7 @@
 **UMBB · L2 Computer Science · 2025/2026**
 **Team of 3 — Work Distribution & Detailed Plan**
 
-> ⚠️ No PHP in this project. Auth and order saving are handled fully client-side with JavaScript and localStorage.
+> 💡 Auth and order saving are handled fully client-side with JavaScript and localStorage.
 
 ---
 
@@ -18,13 +18,12 @@ E_Commerce_Project/
 ├── cart.html             ← Shopping cart page
 ├── style.css             ← External CSS (entire project)
 ├── script.js             ← External JavaScript (entire project)
-├── images/               ← All product & UI images
-│   ├── logo.png
-│   ├── header-bg.jpg
-│   ├── menclothing/
-│   ├── kidsclothing/
-│   └── womenclothing/
-└── schema.sql            ← Database schema (documentation only — not executed)
+└── images/               ← All product & UI images
+    ├── logo.png
+    ├── header-bg.jpg
+    ├── menclothing/
+    ├── kidsclothing/
+    └── womenclothing/
 ```
 
 ---
@@ -191,12 +190,12 @@ Structure:
 
 ---
 
-#### 2. Hardcoded Accounts (replaces PHP auth)
+#### 2. Hardcoded Accounts
 
 Since there is no backend, valid accounts are defined directly in `script.js`:
 
 ```js
-// Hardcoded accounts — no database needed
+// Hardcoded accounts
 const ACCOUNTS = [
   { username: "admin",   password: "1234" },
   { username: "rayan",   password: "pass1" },
@@ -327,9 +326,9 @@ updateCartSidebar();
 
 ---
 
-## 👤 Member 3 — JavaScript (Checkout + Cart Page) & SQL Schema
+## 👤 Member 3 — JavaScript (Checkout + Cart Page)
 
-**Responsible for:** Checkout flow, cart page rendering, order history in localStorage, SQL schema file
+**Responsible for:** Checkout flow, cart page rendering, order history in localStorage
 
 ---
 
@@ -435,7 +434,7 @@ if (cartTableBody) {
 
 ---
 
-#### 3. Logout (no PHP — JS only)
+#### 3. Logout
 
 Add to `script.js`. Since there's no server session, logout clears `sessionStorage` and redirects:
 
@@ -454,77 +453,13 @@ if (logoutLink) {
 
 ---
 
-#### 4. `schema.sql` — Database Schema (documentation file)
-
-Even without running a backend, the spec requires 4 DB tables. Include this file in the submission folder to satisfy the requirement:
-
-```sql
--- schema.sql
--- WAD Homework — E-Commerce Project — L2 2025/2026
--- Note: This schema is provided as documentation.
--- In this implementation, data persistence is handled via localStorage.
-
-CREATE DATABASE IF NOT EXISTS ecommerce_wad;
-USE ecommerce_wad;
-
-CREATE TABLE account (
-    login    VARCHAR(50)  PRIMARY KEY,
-    password VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE customer (
-    customer_id INT          AUTO_INCREMENT PRIMARY KEY,
-    name        VARCHAR(100) NOT NULL,
-    address     VARCHAR(255),
-    phone       VARCHAR(20),
-    email       VARCHAR(100) UNIQUE NOT NULL
-);
-
-CREATE TABLE product (
-    product_id  VARCHAR(20)   PRIMARY KEY,
-    name        VARCHAR(100)  NOT NULL,
-    price       DECIMAL(10,2) NOT NULL,
-    category    VARCHAR(50)   NOT NULL,
-    image       VARCHAR(255),
-    description TEXT
-);
-
-CREATE TABLE orders (
-    order_id    INT           AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT           NOT NULL,
-    product_id  VARCHAR(20)   NOT NULL,
-    quantity    INT           NOT NULL,
-    order_date  DATETIME      DEFAULT CURRENT_TIMESTAMP,
-    total_price DECIMAL(10,2) NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
-    FOREIGN KEY (product_id)  REFERENCES product(product_id)
-);
-
--- Sample accounts
-INSERT INTO account VALUES
-  ('admin',   '1234'),
-  ('rayan',   'pass1'),
-  ('student', 'wad2026');
-
--- Sample products
-INSERT INTO product VALUES
-('men-001', 'Wireless Headphones',     4500.00, 'menclothing', 'images/menclothing/headphones.jpg', 'Noise cancellation, wireless.'),
-('men-002', 'USB-C Hub',               1800.00, 'menclothing', 'images/menclothing/hub.jpg',         '7-in-1 multiport hub.'),
-('men-003', 'LED Desk Lamp',            950.00, 'menclothing', 'images/menclothing/lamp.jpg',         'Adjustable brightness.'),
-('kids-001','Cotton T-Shirt',            600.00, 'kidsclothing',    'images/kidsclothing/tshirt.jpg',          'Everyday comfort.'),
-('kids-002','Denim Jacket',             2800.00, 'kidsclothing',    'images/kidsclothing/jacket.jpg',          'Classic denim fit.'),
-('kids-003','Running Shoes',            3200.00, 'kidsclothing',    'images/kidsclothing/shoes.jpg',           'Lightweight design.'),
-('womenclothing-001', 'Clean Code',              1200.00, 'womenclothing',       'images/womenclothing/cleancode.jpg',          'Best practices for code.'),
-('womenclothing-002', 'The Pragmatic Programmer',1500.00, 'womenclothing',       'images/womenclothing/pragmatic.jpg',          'Career tips for devs.'),
-('womenclothing-003', 'Eloquent JavaScript',     1100.00, 'womenclothing',       'images/womenclothing/javascript.jpg',         'Modern JS introduction.');
-```
+---
 
 ---
 
 ### 📋 Deliverables
 
 - `script.js` — checkout + cart page + logout sections (added to Teammate 2's base file)
-- `schema.sql`
 
 ---
 
@@ -535,10 +470,9 @@ INSERT INTO product VALUES
 Before final submission, verify together:
 
 - [ ] HTML `id`/`class` names match what `script.js` expects (Rayan ↔ Teammates 2 & 3)
-- [ ] `data-id` values on product cards match `product_id` values in `schema.sql`
 - [ ] `getCart()` and `saveCart()` helpers are defined **once** at the top of `script.js`
 - [ ] `updateCartSidebar()` is also defined **once** and called everywhere needed
-- [ ] Logout link on all pages uses `id="logout-link"` (not `href="logout.php"`)
+- [ ] Logout link on all pages uses `id="logout-link"`
 - [ ] All pages link to the same `style.css` and `script.js`
 - [ ] All images load correctly (paths match `images/` folder)
 - [ ] Code is fully commented throughout (required by spec)
