@@ -2117,12 +2117,6 @@ th {
   min-height: 280px;
 }
 
-.footer-groups-row {
-  display: flex;
-  flex-direction: row;
-  gap: 4rem;
-  align-items: flex-start;
-}
 
 .footer-nav-title {
   color: #FFFCF9;
@@ -2239,9 +2233,7 @@ th {
 
 /* --- Footer Bottom Section --- */
 .footer-bottom {
-  margin-top: 5rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--border);
 }
 
 .footer-bottom-container {
@@ -2681,10 +2673,6 @@ th {
     text-align: left; 
     align-items: flex-start;
   }
-  .footer-groups-row {
-    flex-direction: column;
-    gap: 2rem;
-  }
   .footer-nav-group, .footer-nav-title, .footer-nav-links {
     text-align: left;
   }
@@ -2944,4 +2932,44 @@ th {
 .footer-nav-links a {
   text-decoration: none;
   color: white;
+}
+
+/* Footer Bottom Columns */
+.footer-bottom-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-column .member-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.footer-column .member-info {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
 }
