@@ -90,13 +90,14 @@ function updateCartSidebar() {
  * @param {number} price - Product Price
  * @param {number} qty - Quantity to add
  */
-function addItem(id, name, price, qty) {
+function addItem(id, name, price, qty, image) {
     const cart = getCart();
     const existing = cart.find((item) => item.id === id);
     if (existing) {
         existing.qty += qty;
+        if (image) existing.image = image;
     } else {
-        cart.push({ id, name, price, qty });
+        cart.push({ id, name, price, qty, image });
     }
     saveCart(cart);
     updateCartSidebar();
@@ -231,10 +232,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const id = card.getAttribute("data-id");
             const name = card.getAttribute("data-name");
             const price = parseFloat(card.getAttribute("data-price"));
+            const img = card.querySelector(".product-image-container img")?.getAttribute("src");
             const qtyInput = card.querySelector(".qty-input");
             const qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
 
-            addItem(id, name, price, qty);
+            addItem(id, name, price, qty, img);
 
             btn.textContent = '✓ Added!';
             btn.disabled = true;
@@ -291,7 +293,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 grandTotal += subtotal;
                 const row = document.createElement("tr");
                 row.innerHTML = `
-                  <td>${item.name}</td>
+                  <td>
+                    <div class="cart-product-cell">
+                      <img src="${item.image || 'Assets/shopping-cart.svg'}" alt="${item.name}" class="cart-product-img">
+                      <span>${item.name}</span>
+                    </div>
+                  </td>
                   <td>${item.price.toLocaleString()} DA</td>
                   <td>${item.qty}</td>
                   <td>${subtotal.toLocaleString()} DA</td>
